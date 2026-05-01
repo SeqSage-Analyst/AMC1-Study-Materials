@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 1 — Mood & Psychotic Disorders | AMC1 Psychiatry Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6f2;
+    --card: #ffffff;
+    --navy: #1a2744;
+    --blue: #2563eb;
+    --red: #dc2626;
+    --orange: #ea580c;
+    --green: #16a34a;
+    --purple: #7c3aed;
+    --yellow: #d97706;
+    --teal: #0891b2;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --muted: #64748b;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 15px; }
+  
+  .page-header {
+    background: linear-gradient(135deg, #1a2744 0%, #2563eb 100%);
+    color: white; padding: 36px 48px; position: relative; overflow: hidden;
+  }
+  .page-header::after {
+    content: ''; position: absolute; right: -60px; top: -60px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .file-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; color: #93c5fd;
+    margin-bottom: 8px;
+  }
+  .page-header h1 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 6px; }
+  .page-header p { color: #bfdbfe; font-size: 14px; }
+  .priority-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .chip {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+    color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  }
+  .chip.hot { background: rgba(220,38,38,0.5); border-color: rgba(220,38,38,0.7); }
+
+  .container { max-width: 980px; margin: 0 auto; padding: 32px 24px; }
+
+  /* SECTION HEADERS */
+  .section-title {
+    display: flex; align-items: center; gap: 12px;
+    margin: 40px 0 20px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--border);
+  }
+  .section-title .icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .section-title h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--navy); }
+  .section-title .priority-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 3px 8px; border-radius: 4px;
+    background: #fee2e2; color: var(--red); margin-left: auto; white-space: nowrap;
+  }
+
+  /* CARDS */
+  .card { background: var(--card); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 20px; border: 1px solid var(--border); }
+  .card-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 14px; }
+
+  /* CALLOUT BOXES */
+  .callout { border-radius: 10px; padding: 14px 18px; margin: 14px 0; display: flex; gap: 12px; align-items: flex-start; }
+  .callout .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout-content { flex: 1; }
+  .callout-content strong { display: block; margin-bottom: 4px; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .callout p, .callout li { font-size: 14px; }
+  .callout ul { padding-left: 16px; }
+  .callout li { margin-bottom: 3px; }
+
+  .callout.pearl { background: #fefce8; border-left: 4px solid var(--yellow); }
+  .callout.pearl .callout-icon { color: var(--yellow); }
+  .callout.pearl strong { color: var(--yellow); }
+
+  .callout.danger { background: #fef2f2; border-left: 4px solid var(--red); }
+  .callout.danger .callout-icon { color: var(--red); }
+  .callout.danger strong { color: var(--red); }
+
+  .callout.treatment { background: #f0fdf4; border-left: 4px solid var(--green); }
+  .callout.treatment .callout-icon { color: var(--green); }
+  .callout.treatment strong { color: var(--green); }
+
+  .callout.trap { background: #fff7ed; border-left: 4px solid var(--orange); }
+  .callout.trap .callout-icon { color: var(--orange); }
+  .callout.trap strong { color: var(--orange); }
+
+  .callout.info { background: #eff6ff; border-left: 4px solid var(--blue); }
+  .callout.info .callout-icon { color: var(--blue); }
+  .callout.info strong { color: var(--blue); }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin: 14px 0; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: var(--navy); color: white; }
+  thead th { padding: 11px 14px; text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:hover { background: #eff6ff; }
+  td { padding: 10px 14px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+  .badge.green { background: #dcfce7; color: var(--green); }
+  .badge.red { background: #fee2e2; color: var(--red); }
+  .badge.blue { background: #dbeafe; color: var(--blue); }
+  .badge.orange { background: #ffedd5; color: var(--orange); }
+  .badge.purple { background: #ede9fe; color: var(--purple); }
+
+  /* FLOW CHARTS */
+  .flowchart { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 16px 0; }
+  .flow-step {
+    background: var(--navy); color: white; border-radius: 10px;
+    padding: 12px 22px; text-align: center; width: 100%; max-width: 520px;
+    font-size: 14px; font-weight: 600; position: relative;
+  }
+  .flow-step.green-step { background: var(--green); }
+  .flow-step.red-step { background: var(--red); }
+  .flow-step.blue-step { background: var(--blue); }
+  .flow-step.orange-step { background: var(--orange); }
+  .flow-step.purple-step { background: var(--purple); }
+  .flow-step.teal-step { background: var(--teal); }
+  .flow-arrow {
+    width: 2px; height: 24px; background: var(--border);
+    position: relative; margin: 0 auto;
+  }
+  .flow-arrow::after {
+    content: '▼'; position: absolute; bottom: -10px; left: 50%;
+    transform: translateX(-50%); color: var(--muted); font-size: 12px;
+  }
+  .flow-condition {
+    background: #fefce8; border: 2px solid var(--yellow); border-radius: 8px;
+    padding: 8px 16px; text-align: center; font-size: 13px; font-weight: 600;
+    color: #92400e; width: 100%; max-width: 520px;
+  }
+  .flow-branch { display: flex; gap: 12px; width: 100%; max-width: 620px; }
+  .flow-branch-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .flow-branch-step {
+    background: var(--navy); color: white; border-radius: 8px;
+    padding: 10px 14px; text-align: center; width: 100%;
+    font-size: 13px; font-weight: 600;
+  }
+  .flow-sub { font-size: 12px; font-weight: 400; opacity: 0.85; margin-top: 4px; }
+
+  /* MNEMONIC */
+  .mnemonic-box {
+    background: linear-gradient(135deg, #1a2744, #2563eb); color: white;
+    border-radius: 12px; padding: 20px 24px; margin: 16px 0;
+  }
+  .mnemonic-box h4 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 12px; color: #bfdbfe; }
+  .mnemonic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .mnemonic-item { display: flex; gap: 10px; align-items: baseline; }
+  .mnemonic-letter { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #fbbf24; width: 22px; flex-shrink: 0; }
+  .mnemonic-word { font-size: 13px; }
+  .mnemonic-word span { opacity: 0.65; font-size: 12px; }
+
+  /* GRID LAYOUT */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media(max-width: 700px) { .two-col, .three-col { grid-template-columns: 1fr; } .mnemonic-grid { grid-template-columns: 1fr; } }
+
+  /* MINI INFO CARD */
+  .info-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .info-card h5 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .info-card ul { padding-left: 16px; }
+  .info-card li { font-size: 13px; margin-bottom: 3px; }
+
+  /* HIGHLIGHT TEXT */
+  .hl { background: #fef9c3; padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+  .hl-red { background: #fee2e2; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--red); }
+  .hl-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--green); }
+  .hl-blue { background: #dbeafe; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--blue); }
+
+  /* SCENARIO BOXES */
+  .scenario { background: #fdf4ff; border: 1px solid #d8b4fe; border-radius: 8px; padding: 12px 16px; margin: 8px 0; }
+  .scenario .q { font-size: 13px; color: var(--purple); font-weight: 600; margin-bottom: 4px; }
+  .scenario .a { font-size: 13px; }
+
+  /* DURATION TAG */
+  .dur { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--navy); color: white; padding: 2px 8px; border-radius: 4px; display: inline-block; }
+
+  .divider { height: 1px; background: var(--border); margin: 30px 0; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 2px; }
+  .tag.blue { background: #dbeafe; color: var(--blue); }
+  .tag.red { background: #fee2e2; color: var(--red); }
+  .tag.green { background: #dcfce7; color: var(--green); }
+  
+  footer { text-align: center; padding: 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="file-badge">📁 File 1 of 3 — AMC1 Psychiatry Exam Prep</div>
+  <h1>Mood & Psychotic Disorders</h1>
+  <p>Major Depressive Disorder · Bipolar Disorder · Schizophrenia · Postpartum Psychiatry</p>
+  <div class="priority-chips">
+    <span class="chip hot">🔴🔴 MDD — TOP PRIORITY</span>
+    <span class="chip hot">🔴 Bipolar</span>
+    <span class="chip hot">🔴 Schizophrenia</span>
+    <span class="chip">Postpartum</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!--  MAJOR DEPRESSIVE DISORDER                                    -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fee2e2;">😔</div>
+  <h2>Major Depressive Disorder (MDD)</h2>
+  <span class="priority-label">🔴🔴 TOP PRIORITY</span>
+</div>
+
+<!-- MNEMONIC -->
+<div class="mnemonic-box">
+  <h4>🧠 SIG E CAPS — Diagnostic Criteria (≥5 of 9 for ≥2 weeks, must include ① or ②)</h4>
+  <div class="mnemonic-grid">
+    <div class="mnemonic-item"><span class="mnemonic-letter">S</span><span class="mnemonic-word">Sleep disturbance <span>(insomnia or hypersomnia) — Early awakening = highly suggestive</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">I</span><span class="mnemonic-word">Interest loss <span>① = Anhedonia — loss of all pleasant activities</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">G</span><span class="mnemonic-word">Guilt <span>(worthlessness, inappropriate guilt)</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">E</span><span class="mnemonic-word">Energy ↓ <span>(fatigue)</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">C</span><span class="mnemonic-word">Concentration ↓</span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">A</span><span class="mnemonic-word">Appetite ↓ <span>② = Depressed mood</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">P</span><span class="mnemonic-word">Psychomotor agitation or retardation</span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">S</span><span class="mnemonic-word">Suicidal ideation</span></div>
+  </div>
+</div>
+
+<!-- KEY TIMING FACTS -->
+<div class="two-col">
+  <div class="card">
+    <div class="card-title">⏱ Critical Timings</div>
+    <table style="width:100%">
+      <tr><td style="font-weight:600;">Diagnosis requires</td><td><span class="dur">≥ 2 weeks</span></td></tr>
+      <tr><td style="font-weight:600;">SSRI effect onset</td><td><span class="dur">2–6 weeks</span></td></tr>
+      <tr><td style="font-weight:600;">Treatment duration</td><td><span class="dur">6–12 months</span></td></tr>
+      <tr><td style="font-weight:600;">Medication taper</td><td><span class="dur">≥ 2 weeks</span></td></tr>
+      <tr><td style="font-weight:600;">Untreated episode</td><td><span class="dur">6–18 months (avg 8)</span></td></tr>
+      <tr><td style="font-weight:600;">Recurrence after Rx stop</td><td><span class="dur">35%</span></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">📅 Seasonal Patterns</div>
+    <div class="callout info">
+      <span class="callout-icon">❄️</span>
+      <div class="callout-content">
+        <strong>Most common season for Depression</strong>
+        <p><span class="hl">Winter</span></p>
+      </div>
+    </div>
+    <div class="callout danger">
+      <span class="callout-icon">🌸</span>
+      <div class="callout-content">
+        <strong>Most common season for Suicide</strong>
+        <p><span class="hl-red">Spring</span></p>
+      </div>
+    </div>
+    <div class="callout pearl">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-content">
+        <strong>Most important thing to check</strong>
+        <p>Mood (when you suspect depression)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEPRESSION SUBTYPES TABLE -->
+<div class="card">
+  <div class="card-title">Depression Subtypes — Quick Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Subtype</th><th>Key Feature</th><th>Duration</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>MDD</td><td>Full criteria (≥5 sx)</td><td>≥2 weeks</td><td>Baseline diagnosis</td></tr>
+        <tr><td>Dysthymic Disorder</td><td>Chronic low-grade depression</td><td>≥2 years</td><td>Never symptom-free &gt;2 months</td></tr>
+        <tr><td>Seasonal Affective (SAD)</td><td>Depression only in winter</td><td>Winter months</td><td>Light therapy</td></tr>
+        <tr><td>Atypical Depression</td><td>↑ Appetite + ↑ Sleep + ↑ Weight</td><td>≥2 weeks</td><td>Mood reactive to +ve events</td></tr>
+        <tr><td>Melancholic Depression</td><td>Refusal to eat/drink, psychotic features</td><td>Severe</td><td><span class="hl-red">1st line = ECT</span></td></tr>
+        <tr><td>Cyclothymic Disorder</td><td>Depression + episodes of hypomania</td><td>Recurrent</td><td>Milder than Bipolar II</td></tr>
+        <tr><td>Pseudodementia</td><td>Apparent dementia that responds to antidepressants</td><td>Variable</td><td>= Depression in disguise</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TREATMENT FLOWCHART -->
+<div class="card">
+  <div class="card-title">🔀 MDD Treatment Algorithm (AMC/RANZCP 2020)</div>
+  <div class="flowchart">
+    <div class="flow-step blue-step">1st Line: CBT + SSRI<div class="flow-sub">Mild-moderate → CBT alone may suffice | Severe → medication needed</div></div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">Review at 2 weeks → No improvement yet?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step" style="background:var(--muted)">⏳ Just CONTINUE — effect takes 2–6 weeks</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">Review at 6 weeks → Partial response?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step orange-step">STEP 1: Increase SSRI dose</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">Still insufficient?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step purple-step">STEP 2: Augment with Lithium or Antipsychotic</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">Review at 6 weeks → NO response at all?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step teal-step">Switch to another SSRI (1st) or SNRI (2nd)<div class="flow-sub">Duloxetine / Venlafaxine</div></div>
+  </div>
+  <div class="callout danger" style="margin-top:12px">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-content">
+      <strong>Exam Trap — Before ANY antidepressant</strong>
+      <p>Always ask: <span class="hl-red">"Any previous history of Mania?"</span> → Antidepressants can trigger mania in undiagnosed Bipolar</p>
+    </div>
+  </div>
+</div>
+
+<!-- SPECIAL SCENARIOS TABLE -->
+<div class="card">
+  <div class="card-title">🎯 Special Scenarios — "Which Antidepressant?"</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Clinical Scenario</th><th>Preferred Antidepressant</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Standard MDD (1st choice)</td><td><span class="badge green">SSRI</span></td><td>Best efficacy/tolerability profile</td></tr>
+        <tr><td>Depression + Pregnancy</td><td><span class="badge green">Fluoxetine</span></td><td>Most studied in pregnancy</td></tr>
+        <tr><td>Depression + Post-stroke</td><td><span class="badge green">Fluoxetine</span></td><td>Preferred after stroke</td></tr>
+        <tr><td>Depression + Anorexia Nervosa</td><td><span class="badge green">Fluoxetine</span></td><td>Effective for mood + eating disorder</td></tr>
+        <tr><td>Depression + Smoking cessation</td><td><span class="badge blue">Bupropion</span></td><td>Treats both depression and nicotine dependence</td></tr>
+        <tr><td>Depression + Insomnia</td><td><span class="badge blue">Mirtazapine</span></td><td>Sedating → helps sleep</td></tr>
+        <tr><td>Depression + Decreased appetite</td><td><span class="badge blue">Mirtazapine</span></td><td>Increases appetite</td></tr>
+        <tr><td>Depression + Cardiac patient (Alzheimer's)</td><td><span class="badge purple">Memantine</span></td><td>Safer in cardiac patients (donepezil causes bradycardia)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ECT -->
+<div class="card">
+  <div class="card-title">⚡ Electroconvulsive Therapy (ECT)</div>
+  <div class="two-col">
+    <div class="info-card">
+      <h5>✅ Indications</h5>
+      <ul>
+        <li>Severe / psychotic depression</li>
+        <li>Suicidal patient needing rapid response</li>
+        <li>Melancholia with severe malnutrition</li>
+        <li>Postpartum psychosis</li>
+        <li>Refractory depression</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h5>📋 Consent for ECT</h5>
+      <ul>
+        <li><strong>Voluntary patient</strong> → Patient himself</li>
+        <li><strong>Involuntary patient</strong> → Mental Health Tribunal</li>
+        <li><strong>Minor (child)</strong> → Mental Health Tribunal</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout pearl" style="margin-top:12px">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content">
+      <strong>AMC Pearl</strong>
+      <p>Key value of ECT = <span class="hl">Gives IMMEDIATE response</span> (unlike SSRIs which take 2–6 weeks)<br>
+      Key side effect = <span class="hl">Transient memory disturbance</span></p>
+      <p style="margin-top:6px;">Scenario: <em>"Patient complains of memory problems after recent psychiatric admission?"</em> → Ask: <strong>Did you receive ECT?</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- WHEN LONGER TREATMENT -->
+<div class="card">
+  <div class="card-title">📅 Duration of Treatment Decision</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Duration</th><th>Indication</th></tr></thead>
+      <tbody>
+        <tr><td>Standard (6–12 months)</td><td>First uncomplicated episode of MDD</td></tr>
+        <tr><td>3–5 years</td><td>One severe episode OR 2+ episodes OR family h/o recurrent depression</td></tr>
+        <tr><td>Lifelong (debated)</td><td>Recurrent suicidal patients</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SUICIDE RISK -->
+<div class="card">
+  <div class="card-title">🚨 Suicide Risk — Must Know</div>
+  <div class="two-col">
+    <div>
+      <div class="callout danger">
+        <span class="callout-icon">⛔</span>
+        <div class="callout-content">
+          <strong>Highest Risk Group</strong>
+          <ul>
+            <li><strong>#1 risk factor:</strong> History of previous suicidal attempt</li>
+            <li>Has a specific plan</li>
+            <li>Single male</li>
+            <li>Physician / immigrant / recently unemployed</li>
+            <li>Early dementia</li>
+            <li>Recent discharge from hospital <span class="hl-red">(highest risk = first 2 weeks post-discharge)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="callout treatment">
+        <span class="callout-icon">💬</span>
+        <div class="callout-content">
+          <strong>Key Clinical Points</strong>
+          <ul>
+            <li>Most important question to ask depressed patient: <span class="hl-green">"Do you have suicidal thoughts?"</span></li>
+            <li>Asking about suicide does NOT increase risk</li>
+            <li>Once identified → <strong>Involuntary admission immediately</strong></li>
+            <li>Females attempt more; Males succeed more</li>
+            <li>Married = lowest risk</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GERIATRIC DEPRESSION SCALE -->
+<div class="callout info">
+  <span class="callout-icon">👴</span>
+  <div class="callout-content">
+    <strong>Geriatric Depression Scale (GDS) Scoring</strong>
+    <p>0–4 = Normal | 5–9 = Mild depression | 10–15 = More severe depression</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  BIPOLAR DISORDER                                            -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fef3c7;">🔄</div>
+  <h2>Bipolar Disorder</h2>
+  <span class="priority-label">🔴 HIGH PRIORITY</span>
+</div>
+
+<!-- MANIA MNEMONIC -->
+<div class="mnemonic-box">
+  <h4>🧠 DIG FAST — Symptoms of Mania</h4>
+  <div class="mnemonic-grid">
+    <div class="mnemonic-item"><span class="mnemonic-letter">D</span><span class="mnemonic-word">Distractibility</span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">I</span><span class="mnemonic-word">Insomnia <span>(no need for sleep — not tired)</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">G</span><span class="mnemonic-word">Grandiosity <span>(elevated self-esteem)</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">F</span><span class="mnemonic-word">Flight of ideas</span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">A</span><span class="mnemonic-word">Activity ↑ <span>(psychomotor agitation + sexual indiscretions)</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">S</span><span class="mnemonic-word">Speech ↑ <span>(talkativeness, pressured speech)</span></span></div>
+    <div class="mnemonic-item"><span class="mnemonic-letter">T</span><span class="mnemonic-word">Thoughtlessness <span>(reckless behavior)</span></span></div>
+  </div>
+</div>
+
+<!-- MANIA vs HYPOMANIA -->
+<div class="card">
+  <div class="card-title">⚖️ Mania vs Hypomania — Key Differences</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Mania</th><th>Hypomania</th></tr></thead>
+      <tbody>
+        <tr><td>Functional Impairment</td><td><span class="badge red">Marked impairment</span></td><td><span class="badge green">No marked impairment</span></td></tr>
+        <tr><td>Hospitalization needed</td><td><span class="badge red">Yes</span></td><td><span class="badge green">No</span></td></tr>
+        <tr><td>Psychosis</td><td><span class="badge red">Can occur</span></td><td><span class="badge green">Absent</span></td></tr>
+        <tr><td>Agitation</td><td><span class="badge red">Significant</span></td><td><span class="badge green">Minimal</span></td></tr>
+        <tr><td>Symptoms</td><td>Same DIG FAST</td><td>Same but milder</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- BIPOLAR MANAGEMENT FLOWCHARTS -->
+<div class="two-col">
+  <div class="card">
+    <div class="card-title">🔀 Acute Mania — Management</div>
+    <div class="flowchart">
+      <div class="flow-step red-step">INVOLUNTARY ADMISSION</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step blue-step">1st: Antipsychotic (IMMEDIATE)<div class="flow-sub">Risperidone / Aripiprazole / Quetiapine</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step green-step">2nd: Add Mood Stabilizer<div class="flow-sub">Lithium OR Valproic Acid</div></div>
+    </div>
+    <div class="callout pearl" style="margin-top:12px">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-content"><strong>Why antipsychotic FIRST?</strong><p>Antimanic effects of mood stabilizers take time → antipsychotic gives immediate control</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🔀 Bipolar Depression — Management</div>
+    <div class="flowchart">
+      <div class="flow-step green-step">1st Line: Lithium (BEST)<div class="flow-sub">OR Lamotrigine OR Valproic Acid</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step blue-step">2nd Line: Antipsychotic<div class="flow-sub">Best = Quetiapine</div></div>
+    </div>
+    <div class="callout trap" style="margin-top:12px">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-content"><strong>Antidepressant-Induced Mania</strong>
+        <p>1st: Stop antidepressant → 2nd: Give antipsychotic</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔀 Long-Term Bipolar Maintenance</div>
+  <div class="flowchart">
+    <div class="flow-step blue-step">1st Line: Lithium (Drug of choice for long-term)</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">Not controlled?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step purple-step">Add Valproic Acid OR Antipsychotic (Quetiapine / Aripiprazole)</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">On antipsychotic but still not controlled?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step green-step">Add Lithium OR Valproic Acid</div>
+  </div>
+  <div class="callout info" style="margin-top:12px">
+    <span class="callout-icon">⏱</span>
+    <div class="callout-content"><strong>Minimum duration of treatment for Bipolar</strong><p>At least <span class="hl">2 years</span></p></div>
+  </div>
+</div>
+
+<!-- SPECIAL BIPOLAR SCENARIOS -->
+<div class="card">
+  <div class="card-title">🎯 High-Yield Bipolar Scenarios</div>
+  <div class="scenario">
+    <div class="q">Q: Bipolar patient develops depression while on antipsychotic?</div>
+    <div class="a">→ Continue antipsychotic AND ADD antidepressant</div>
+  </div>
+  <div class="scenario">
+    <div class="q">Q: Bipolar patient develops mania after starting antidepressant?</div>
+    <div class="a">→ 1st STOP antidepressant → 2nd Give antipsychotic</div>
+  </div>
+  <div class="scenario">
+    <div class="q">Q: Most important question BEFORE starting antidepressant?</div>
+    <div class="a">→ <strong>"Any previous history of Mania?"</strong></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  SCHIZOPHRENIA                                               -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#ede9fe;">🧩</div>
+  <h2>Schizophrenia</h2>
+  <span class="priority-label">🔴 HIGH PRIORITY</span>
+</div>
+
+<!-- RISK TABLE -->
+<div class="two-col">
+  <div class="card">
+    <div class="card-title">📊 Risk Probability by Relationship</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Relationship</th><th>Risk</th></tr></thead>
+        <tbody>
+          <tr><td>General population</td><td>1%</td></tr>
+          <tr><td>First-degree relative</td><td>12%</td></tr>
+          <tr><td>Grandchildren</td><td>6%</td></tr>
+          <tr><td>Single parent affected</td><td>12%</td></tr>
+          <tr><td>Both parents affected</td><td>40%</td></tr>
+          <tr><td>Monozygotic twins</td><td><span class="badge red">47%</span></td></tr>
+          <tr><td>Dizygotic twins</td><td>12%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🏥 Diagnostic Duration Rule</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Duration of Psychosis</th><th>Diagnosis</th></tr></thead>
+        <tbody>
+          <tr><td><span class="dur">&lt; 1 month</span></td><td>Brief Psychotic Disorder</td></tr>
+          <tr><td><span class="dur">1–6 months</span></td><td>Schizophreniform Disorder</td></tr>
+          <tr><td><span class="dur">&gt; 6 months</span></td><td><strong>Schizophrenia</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout pearl" style="margin-top:12px">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-content"><strong>Age of onset</strong><p>18–25 years → High school / college students<br>Drop of grades + isolation = <span class="hl">Prodrome of schizophrenia until proved otherwise</span></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPES -->
+<div class="card">
+  <div class="card-title">📋 Schizophrenia Types</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Key Feature</th><th>Prognosis</th></tr></thead>
+      <tbody>
+        <tr><td>Paranoid</td><td>Delusions and/or hallucinations (+ symptoms dominant)</td><td><span class="badge green">Better</span></td></tr>
+        <tr><td>Disorganized</td><td>Disordered speech and behavior</td><td><span class="badge orange">Moderate</span></td></tr>
+        <tr><td>Catatonic</td><td>Immobility, mutism, waxy flexibility, echolalia/echopraxia</td><td><span class="badge green">Catatonic = Good prognostic sign</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- POSITIVE vs NEGATIVE -->
+<div class="card">
+  <div class="card-title">⚖️ Positive vs Negative Symptoms</div>
+  <div class="two-col">
+    <div class="info-card">
+      <h5 style="color:var(--green)">✅ Positive Symptoms (better prognosis)</h5>
+      <ul>
+        <li>Hallucinations (auditory most common)</li>
+        <li>Delusions</li>
+        <li>Disorganized speech/behavior</li>
+        <li>Respond better to antipsychotics</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h5 style="color:var(--red)">❌ Negative Symptoms (worse prognosis)</h5>
+      <ul>
+        <li>Flat affect</li>
+        <li>Alogia (poverty of speech)</li>
+        <li>Avolition (lack of motivation)</li>
+        <li>Social withdrawal</li>
+        <li>Anhedonia</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PROGNOSIS -->
+<div class="card">
+  <div class="card-title">📈 Prognostic Indicators</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Factor</th><th>Good Prognosis</th><th>Poor Prognosis</th></tr></thead>
+      <tbody>
+        <tr><td>Symptom type</td><td>Positive symptoms / Catatonic</td><td>Negative symptoms</td></tr>
+        <tr><td>Sex</td><td>Female</td><td>Male</td></tr>
+        <tr><td>Onset</td><td>Acute, 1st attack</td><td>Insidious, multiple attacks</td></tr>
+        <tr><td>Family history</td><td>Negative</td><td>Positive</td></tr>
+        <tr><td>Social/work</td><td>Stable relationships + work</td><td>Social isolation</td></tr>
+        <tr><td>Precipitating factor</td><td>Related to clear trigger</td><td>No clear trigger</td></tr>
+        <tr><td>CT brain</td><td>Normal CT</td><td>Enlarged ventricles + ↓ cortical volume</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MANAGEMENT -->
+<div class="card">
+  <div class="card-title">🔀 Schizophrenia Management Algorithm</div>
+  <div class="flowchart">
+    <div class="flow-step blue-step">1st Line: Atypical Antipsychotic<div class="flow-sub">Risperidone / Quetiapine / Aripiprazole</div></div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">No effect after 3 weeks?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step orange-step">Increase the dose</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">Still no effect?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step purple-step">Switch to another antipsychotic</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-condition">All antipsychotics failed?</div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step red-step">LAST RESORT: Clozapine<div class="flow-sub">⚠️ Never start with clozapine — agranulocytosis risk</div></div>
+  </div>
+  <div class="two-col" style="margin-top:12px">
+    <div class="callout pearl">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-content"><strong>Non-compliant patient?</strong><p>→ Give Long-acting (Depot) Risperidone</p></div>
+    </div>
+    <div class="callout info">
+      <span class="callout-icon">⏱</span>
+      <div class="callout-content"><strong>Minimum treatment duration</strong><p>→ 2 years minimum</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- THOUGHT DISORDER TERMS -->
+<div class="card">
+  <div class="card-title">📖 Schizophrenia-Related Terminology</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Term</th><th>Definition</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Circumstantiality</td><td>Excessive details but DOES eventually answer</td><td>Gets there in the end</td></tr>
+        <tr><td>Tangentiality</td><td>Irrelevant answers, NEVER answers the question</td><td>Never reaches the point</td></tr>
+        <tr><td>Derailment (loose association)</td><td>Jumping from one unrelated idea to another</td><td>Hallmark of thought disorder</td></tr>
+        <tr><td>Delusion</td><td>False, fixed belief</td><td>Antipsychotic = preferred Rx</td></tr>
+        <tr><td>Impaired Insight</td><td>Very important sign in schizophrenia</td><td>Patient doesn't know they're ill</td></tr>
+        <tr><td>Folie à deux</td><td>Shared delusion within family members</td><td>Transmitted from one to another</td></tr>
+        <tr><td>Capgras Syndrome</td><td>Belief that loved one replaced by identical impostor</td><td>Type of delusion</td></tr>
+        <tr><td>Overvalued Idea</td><td>Unreasonable but accepted idea, not a delusion</td><td>Patient accepts it as their own</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SCHIZOPHRENIA PEARLS -->
+<div class="callout pearl">
+  <span class="callout-icon">🎯</span>
+  <div class="callout-content">
+    <strong>AMC Pearls — Schizophrenia</strong>
+    <ul>
+      <li>Most affected cognitive function in schizophrenia = <span class="hl">Proverb interpretation</span></li>
+      <li>Most common cause of death in schizophrenia = <span class="hl">CVS disease</span>, then suicide</li>
+      <li>People at highest risk of being hurt by schizophrenic patient = <span class="hl">Parents</span></li>
+      <li>Drug of choice for Catatonic schizophrenia = <span class="hl">Benzodiazepine</span></li>
+      <li>Brief Psychotic Disorder = Psychotic reaction to severe stress in a normal person (e.g., girlfriend left → delusions)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  POSTPARTUM PSYCHIATRY                                        -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fce7f3;">🤱</div>
+  <h2>Postpartum Psychiatric Disorders</h2>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ Postpartum Blues vs Depression vs Psychosis — Master Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Baby Blues</th><th>Postpartum Depression</th><th>Postpartum Psychosis</th></tr></thead>
+      <tbody>
+        <tr><td>Onset</td><td>Days 1–5</td><td>Within 4 weeks</td><td>Within 2 weeks (1st 48h peak)</td></tr>
+        <tr><td>Duration</td><td>&lt;2 weeks</td><td>Weeks–months</td><td>Acute</td></tr>
+        <tr><td>Frequency</td><td>50–80% of mothers</td><td>10–15%</td><td>0.1–0.2%</td></tr>
+        <tr><td>Key features</td><td>Mood swings, tearfulness, no depressive criteria</td><td>Full MDD criteria</td><td><span class="badge red">Delusions</span>, hallucinations, confusion</td></tr>
+        <tr><td>Treatment</td><td>Support + family involvement + continue breastfeeding</td><td>SSRI + psychotherapy</td><td>Admission + antipsychotic + ECT</td></tr>
+        <tr><td>Safety concern</td><td>None</td><td>Monitor suicidal ideation</td><td><span class="badge red">Harm to baby — isolate baby immediately</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="callout danger">
+    <span class="callout-icon">🚨</span>
+    <div class="callout-content">
+      <strong>Most Important Questions</strong>
+      <ul>
+        <li>After any delivery: <span class="hl-red">"How is your mood?"</span></li>
+        <li>If psychosis suspected: <span class="hl-red">"Any thoughts of hurting yourself or baby?"</span></li>
+        <li>Most concerning symptom of postpartum psychosis: <span class="hl-red">Delusions</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout pearl">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content">
+      <strong>Clinical Clues</strong>
+      <ul>
+        <li>Postpartum psychosis + Fever → Rule out <strong>infection</strong></li>
+        <li>Postpartum psychosis + No fever → Do <strong>urine toxicology</strong></li>
+        <li>Recurrence risk: psychosis 15–20%, depression 20–40%</li>
+        <li>Prophylactic antipsychotic during pregnancy = <strong>NOT recommended</strong> (give after delivery)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="callout info">
+  <span class="callout-icon">⏱</span>
+  <div class="callout-content">
+    <strong>Timing Pearl</strong>
+    <p>Highest timing to develop psychiatric disorder in pregnancy = <span class="hl">Puerperium (postpartum period)</span></p>
+  </div>
+</div>
+
+</div><!-- /container -->
+<footer>File 1 of 3 · AMC1 Psychiatry Exam Prep · Mood & Psychotic Disorders · Based on RANZCP/AMC Guidelines 2020</footer>
+</body>
+</html>

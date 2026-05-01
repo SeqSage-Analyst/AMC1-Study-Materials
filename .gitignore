@@ -1,0 +1,4 @@
+# Exclude large PDFs (> 100MB - GitHub limit)
+*.pdf
+
+# Ignore any files with very long names that might cause issues

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 2 — Anxiety, Personality & Childhood | AMC1 Psychiatry Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6f2; --card: #ffffff; --navy: #1a2744; --blue: #2563eb;
+    --red: #dc2626; --orange: #ea580c; --green: #16a34a; --purple: #7c3aed;
+    --yellow: #d97706; --teal: #0891b2; --border: #e2e8f0; --text: #1e293b;
+    --muted: #64748b; --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 15px; }
+
+  .page-header { background: linear-gradient(135deg, #1a3a2a 0%, #16a34a 100%); color: white; padding: 36px 48px; position: relative; overflow: hidden; }
+  .page-header::after { content: ''; position: absolute; right: -60px; top: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+  .file-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #bbf7d0; margin-bottom: 8px; }
+  .page-header h1 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 6px; }
+  .page-header p { color: #d1fae5; font-size: 14px; }
+  .priority-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .chip { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .chip.hot { background: rgba(220,38,38,0.5); border-color: rgba(220,38,38,0.7); }
+
+  .container { max-width: 980px; margin: 0 auto; padding: 32px 24px; }
+
+  .section-title { display: flex; align-items: center; gap: 12px; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .section-title .icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .section-title h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--navy); }
+  .section-title .priority-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 8px; border-radius: 4px; background: #fee2e2; color: var(--red); margin-left: auto; white-space: nowrap; }
+  .priority-green { background: #dcfce7 !important; color: var(--green) !important; }
+
+  .card { background: var(--card); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 20px; border: 1px solid var(--border); }
+  .card-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 14px; }
+
+  .callout { border-radius: 10px; padding: 14px 18px; margin: 14px 0; display: flex; gap: 12px; align-items: flex-start; }
+  .callout .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout-content { flex: 1; }
+  .callout-content strong { display: block; margin-bottom: 4px; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .callout p, .callout li { font-size: 14px; }
+  .callout ul { padding-left: 16px; }
+  .callout li { margin-bottom: 3px; }
+
+  .callout.pearl { background: #fefce8; border-left: 4px solid var(--yellow); }
+  .callout.pearl strong { color: var(--yellow); }
+  .callout.danger { background: #fef2f2; border-left: 4px solid var(--red); }
+  .callout.danger strong { color: var(--red); }
+  .callout.treatment { background: #f0fdf4; border-left: 4px solid var(--green); }
+  .callout.treatment strong { color: var(--green); }
+  .callout.trap { background: #fff7ed; border-left: 4px solid var(--orange); }
+  .callout.trap strong { color: var(--orange); }
+  .callout.info { background: #eff6ff; border-left: 4px solid var(--blue); }
+  .callout.info strong { color: var(--blue); }
+  .callout.purple { background: #faf5ff; border-left: 4px solid var(--purple); }
+  .callout.purple strong { color: var(--purple); }
+
+  .table-wrap { overflow-x: auto; margin: 14px 0; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: var(--navy); color: white; }
+  thead th { padding: 11px 14px; text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:hover { background: #f0fdf4; }
+  td { padding: 10px 14px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td:first-child { font-weight: 600; color: var(--navy); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+  .badge.green { background: #dcfce7; color: var(--green); }
+  .badge.red { background: #fee2e2; color: var(--red); }
+  .badge.blue { background: #dbeafe; color: var(--blue); }
+  .badge.orange { background: #ffedd5; color: var(--orange); }
+  .badge.purple { background: #ede9fe; color: var(--purple); }
+  .badge.teal { background: #cffafe; color: var(--teal); }
+
+  .flowchart { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 16px 0; }
+  .flow-step { background: var(--navy); color: white; border-radius: 10px; padding: 12px 22px; text-align: center; width: 100%; max-width: 520px; font-size: 14px; font-weight: 600; }
+  .flow-step.green-step { background: var(--green); }
+  .flow-step.red-step { background: var(--red); }
+  .flow-step.blue-step { background: var(--blue); }
+  .flow-step.orange-step { background: var(--orange); }
+  .flow-step.purple-step { background: var(--purple); }
+  .flow-step.teal-step { background: var(--teal); }
+  .flow-sub { font-size: 12px; font-weight: 400; opacity: 0.85; margin-top: 4px; }
+  .flow-arrow { width: 2px; height: 24px; background: var(--border); position: relative; margin: 0 auto; }
+  .flow-arrow::after { content: '▼'; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: var(--muted); font-size: 12px; }
+  .flow-condition { background: #fefce8; border: 2px solid var(--yellow); border-radius: 8px; padding: 8px 16px; text-align: center; font-size: 13px; font-weight: 600; color: #92400e; width: 100%; max-width: 520px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media(max-width: 700px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+
+  .info-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .info-card h5 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .info-card ul { padding-left: 16px; }
+  .info-card li { font-size: 13px; margin-bottom: 3px; }
+
+  .hl { background: #fef9c3; padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+  .hl-red { background: #fee2e2; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--red); }
+  .hl-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--green); }
+  .hl-blue { background: #dbeafe; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--blue); }
+
+  .scenario { background: #fdf4ff; border: 1px solid #d8b4fe; border-radius: 8px; padding: 12px 16px; margin: 8px 0; }
+  .scenario .q { font-size: 13px; color: var(--purple); font-weight: 600; margin-bottom: 4px; }
+  .scenario .a { font-size: 13px; }
+
+  /* CLUSTER BOXES */
+  .cluster-box { border-radius: 12px; padding: 18px 20px; margin-bottom: 10px; }
+  .cluster-a { background: linear-gradient(135deg, #faf5ff, #ede9fe); border: 2px solid #c4b5fd; }
+  .cluster-b { background: linear-gradient(135deg, #fff1f2, #fee2e2); border: 2px solid #fca5a5; }
+  .cluster-c { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px solid #86efac; }
+  .cluster-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .cluster-subtitle { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; opacity: 0.7; }
+
+  .dur { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--navy); color: white; padding: 2px 8px; border-radius: 4px; display: inline-block; }
+  .divider { height: 1px; background: var(--border); margin: 30px 0; }
+
+  /* GRADUAL EXPOSURE */
+  .exposure-ladder { margin: 14px 0; }
+  .exposure-rung { display: flex; align-items: center; gap: 12px; padding: 8px 14px; border-radius: 6px; margin-bottom: 4px; font-size: 13px; }
+  .exposure-rung.high { background: #fee2e2; }
+  .exposure-rung.med { background: #fff7ed; }
+  .exposure-rung.low { background: #f0fdf4; }
+  .exposure-num { font-family: 'JetBrains Mono', monospace; font-weight: 700; width: 24px; flex-shrink: 0; }
+
+  footer { text-align: center; padding: 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="file-badge">📁 File 2 of 3 — AMC1 Psychiatry Exam Prep</div>
+  <h1>Anxiety, Personality & Childhood Disorders</h1>
+  <p>Personality Disorders · Panic Disorder · Anxiety Disorders · Childhood Psychiatry</p>
+  <div class="priority-chips">
+    <span class="chip hot">🔴 Personality Disorders</span>
+    <span class="chip hot">🔴 Panic Disorder</span>
+    <span class="chip hot">🔴 Childhood Disorders</span>
+    <span class="chip">OCD · PTSD · GAD</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!--  PERSONALITY DISORDERS                                        -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#ede9fe;">🎭</div>
+  <h2>Personality Disorders</h2>
+  <span class="priority-label">🔴 HIGH PRIORITY</span>
+</div>
+
+<!-- CLUSTER OVERVIEW -->
+<div class="cluster-box cluster-a">
+  <div class="cluster-title" style="color:#6d28d9;">Cluster A — "Weird" (Odd/Eccentric)</div>
+  <div class="cluster-subtitle" style="color:#7c3aed;">Paranoid · Schizoid · Schizotypal</div>
+  <p style="font-size:13px;">Social detachment, odd beliefs, restricted emotional expression. Think: resemblance to psychosis without meeting full psychotic criteria.</p>
+</div>
+<div class="cluster-box cluster-b">
+  <div class="cluster-title" style="color:#b91c1c;">Cluster B — "Wild" (Dramatic/Emotional/Erratic)</div>
+  <div class="cluster-subtitle" style="color:#dc2626;">Borderline · Antisocial · Narcissistic · Histrionic</div>
+  <p style="font-size:13px;">Impulsivity, dramatic behavior, difficulty with emotions. Most commonly tested cluster in AMC.</p>
+</div>
+<div class="cluster-box cluster-c">
+  <div class="cluster-title" style="color:#15803d;">Cluster C — "Worried" (Anxious/Fearful)</div>
+  <div class="cluster-subtitle" style="color:#16a34a;">Avoidant · Dependent · Obsessive-Compulsive PD</div>
+  <p style="font-size:13px;">Anxiety-driven behaviors, fear of rejection, need for control or others' support.</p>
+</div>
+
+<!-- MASTER TABLE -->
+<div class="card">
+  <div class="card-title">📋 All Personality Disorders — Master Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Disorder</th><th>Cluster</th><th>Sex</th><th>Key Features</th><th>Classic Scenario</th><th>Treatment</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Paranoid</td><td><span class="badge purple">A</span></td><td>M=F</td>
+          <td>Distrustful, suspicious, interprets others' actions as threatening, emotionally cold</td>
+          <td>Patient convinced coworkers are plotting against him, no evidence</td>
+          <td>Psychotherapy</td>
+        </tr>
+        <tr>
+          <td>Schizoid</td><td><span class="badge purple">A</span></td><td>M&gt;F</td>
+          <td>Loner, detached, no interest in social relationships, no interest in sex or criticism, emotionally sufficient</td>
+          <td>Lives alone, no relationships, no desire for them, content</td>
+          <td>Psychotherapy</td>
+        </tr>
+        <tr>
+          <td>Schizotypal</td><td><span class="badge purple">A</span></td><td>M=F</td>
+          <td>Like schizoid + magical thinking, ideas of reference, paranoid ideation, odd appearance/behavior</td>
+          <td>Lives alone, no relationships + DELUSIONS or magical thinking</td>
+          <td>Low-dose antipsychotic</td>
+        </tr>
+        <tr>
+          <td style="color:var(--red);font-weight:700;">Borderline ⭐</td><td><span class="badge red">B</span></td><td><strong>F</strong></td>
+          <td>Unstable mood, splitting, impulsivity, unstable relationships, self-injury, emptiness, inappropriate anger</td>
+          <td>Multiple broken relationships, recurrent self-harm, "You're the best/worst doctor"</td>
+          <td>Dialectical Behavioral Therapy (DBT)</td>
+        </tr>
+        <tr>
+          <td>Antisocial</td><td><span class="badge red">B</span></td><td><strong>M</strong></td>
+          <td>Recurrent criminal acts, ignores others' rights, impulsivity, aggression, no remorse, starts as conduct disorder (&lt;18)</td>
+          <td>20yo male, multiple crimes, drug abuse, police involvement</td>
+          <td>CBT</td>
+        </tr>
+        <tr>
+          <td>Narcissistic</td><td><span class="badge red">B</span></td><td>M&gt;F</td>
+          <td>Grandiosity, preoccupation with success, lack of empathy, very sensitive to criticism</td>
+          <td>Patient demands VIP room, feels superior to others</td>
+          <td>Psychotherapy</td>
+        </tr>
+        <tr>
+          <td>Histrionic</td><td><span class="badge red">B</span></td><td><strong>F</strong></td>
+          <td>Attention-seeking, seductive behavior, dramatic emotional expression, rapidly shifting emotions, excessive makeup/appearance</td>
+          <td>Over-dressed, sexually seductive, dramatic, needs to be center of attention</td>
+          <td>Psychotherapy</td>
+        </tr>
+        <tr>
+          <td>Avoidant</td><td><span class="badge green">C</span></td><td>F≥M</td>
+          <td>Socially inhibited, rejection-sensitive, fears being disliked/ridiculed, lonely, very sensitive to criticism</td>
+          <td>Lives alone, WANTS relationships but is too afraid, low self-confidence</td>
+          <td>CBT, SSRIs</td>
+        </tr>
+        <tr>
+          <td>Dependent</td><td><span class="badge green">C</span></td><td><strong>F</strong></td>
+          <td>Needs to be taken care of, difficulty making decisions, fears abandonment, relies on husband/family</td>
+          <td>Common victim of abuse, cannot make any independent decision</td>
+          <td>Psychotherapy</td>
+        </tr>
+        <tr>
+          <td>Obsessive-Compulsive PD</td><td><span class="badge green">C</span></td><td><strong>F</strong></td>
+          <td>Perfectionism, preoccupied with order/control, inflexible morals, excessive detail at expense of efficiency</td>
+          <td>Always late to finish tasks due to need for perfection</td>
+          <td>Psychotherapy</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CRITICAL DIFFERENTIATORS -->
+<div class="card">
+  <div class="card-title">🎯 Critical Differentiators — AMC Exam Traps</div>
+  <div class="two-col">
+    <div>
+      <div class="scenario">
+        <div class="q">Lives alone + No interest in any social relationships?</div>
+        <div class="a">→ <strong>Schizoid</strong></div>
+      </div>
+      <div class="scenario">
+        <div class="q">Same + Delusions or magical thinking?</div>
+        <div class="a">→ <strong>Schizotypal</strong></div>
+      </div>
+      <div class="scenario">
+        <div class="q">Lives alone + WANTS relationships but AFRAID + low self-confidence?</div>
+        <div class="a">→ <strong>Avoidant</strong></div>
+      </div>
+      <div class="scenario">
+        <div class="q">Female, multiple broken relationships, recurrent self-injury?</div>
+        <div class="a">→ <strong>Borderline</strong></div>
+      </div>
+    </div>
+    <div>
+      <div class="scenario">
+        <div class="q">Male, 20yo, multiple crimes, drugs, alcohol, aggression?</div>
+        <div class="a">→ <strong>Antisocial</strong> PD (must be ≥18)</div>
+      </div>
+      <div class="scenario">
+        <div class="q">Same picture, but under 18?</div>
+        <div class="a">→ <strong>Conduct Disorder</strong></div>
+      </div>
+      <div class="scenario">
+        <div class="q">Patient: "You're the BEST doctor, my old GP was the WORST"?</div>
+        <div class="a">→ <strong>Borderline</strong> = Splitting defense mechanism</div>
+      </div>
+      <div class="scenario">
+        <div class="q">Patient always late at work, perfect routine, cares about perfection?</div>
+        <div class="a">→ <strong>OC Personality Disorder</strong> (NOT OCD — different!)</div>
+      </div>
+    </div>
+  </div>
+  <div class="callout danger">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-content">
+      <strong>Critical Distinction: OCD vs OC Personality Disorder</strong>
+      <p>OCD = Ego-dystonic (patient is distressed, wants to stop obsessions) | OC Personality = Ego-syntonic (patient sees their perfectionism as reasonable)</p>
+    </div>
+  </div>
+</div>
+
+<!-- BORDERLINE DEEP DIVE -->
+<div class="card">
+  <div class="card-title">⭐ Borderline Personality Disorder — Deep Dive</div>
+  <div class="two-col">
+    <div class="info-card">
+      <h5>Diagnostic Features (≥5 of 9)</h5>
+      <ul>
+        <li>Frantic efforts to avoid abandonment</li>
+        <li>Unstable, intense relationships</li>
+        <li>Identity disturbance</li>
+        <li>Impulsivity (spending, sex, substance abuse)</li>
+        <li>Recurrent suicidal behavior / self-injury</li>
+        <li>Emotional instability (mood swings)</li>
+        <li>Chronic feelings of emptiness</li>
+        <li>Inappropriate, intense anger</li>
+        <li>Transient paranoid ideation</li>
+      </ul>
+    </div>
+    <div>
+      <div class="callout purple">
+        <span class="callout-icon">🎭</span>
+        <div class="callout-content">
+          <strong>Key Defense Mechanism: SPLITTING</strong>
+          <p>Seeing things as entirely all-good or all-bad — no middle ground. "Best doctor in the world" one day → "Worst doctor" the next.</p>
+        </div>
+      </div>
+      <div class="callout treatment">
+        <span class="callout-icon">💊</span>
+        <div class="callout-content">
+          <strong>Treatment</strong>
+          <p>First line: <span class="hl-green">Dialectical Behavioral Therapy (DBT)</span><br>Also: Psychodynamic therapy</p>
+        </div>
+      </div>
+      <div class="callout pearl">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-content">
+          <strong>AMC Pearl</strong>
+          <p>One of the most common patients to sue physicians for small things. Wrist = most common self-injury site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  PANIC DISORDER & PHOBIAS                                    -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fff7ed;">😰</div>
+  <h2>Panic Disorder & Related Anxiety</h2>
+  <span class="priority-label">🔴 HIGH PRIORITY</span>
+</div>
+
+<!-- PANIC FEATURES -->
+<div class="two-col">
+  <div class="card">
+    <div class="card-title">🫀 Panic Disorder — Clinical Features</div>
+    <ul style="padding-left:20px; font-size:14px; line-height:2;">
+      <li>Female in her 20s</li>
+      <li>Periods of intense fear/discomfort</li>
+      <li>Tachypnea, chest pain, palpitations, diaphoresis</li>
+      <li>Nausea, trembling, dizziness</li>
+      <li>Fear of dying or "going crazy"</li>
+      <li>Depersonalization</li>
+      <li>Perioral/acral paresthesias</li>
+      <li>Agoraphobia present in <span class="hl">30–50%</span> of cases</li>
+    </ul>
+    <div class="callout info" style="margin-top:12px">
+      <span class="callout-icon">🔬</span>
+      <div class="callout-content">
+        <strong>VBG Finding</strong>
+        <p>↑ pH (alkalosis) + ↓ CO₂ → Respiratory alkalosis from hyperventilation</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🔀 Panic Disorder Treatment</div>
+    <div class="flowchart">
+      <div class="flow-step blue-step">1st Line: CBT<div class="flow-sub">Graded Exposure + Relaxation techniques</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step orange-step">Short-term: Beta-blocker OR Benzodiazepine<div class="flow-sub">Good for acute/immediate relief</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step green-step">Long-term: SSRI<div class="flow-sub">Best for chronic management</div></div>
+    </div>
+    <div class="callout trap" style="margin-top:12px">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-content">
+        <strong>Diet triggers</strong>
+        <p>Caffeine and alcohol can trigger panic attacks</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GRADUAL EXPOSURE LADDER -->
+<div class="card">
+  <div class="card-title">🪜 Gradual Exposure Ladder — AMC Favourite! (Supermarket Example)</div>
+  <p style="font-size:13px; color:var(--muted); margin-bottom:12px;">Always start from the LEAST anxiety-provoking step and work UP gradually:</p>
+  <div class="exposure-ladder">
+    <div class="exposure-rung low"><span class="exposure-num">1️⃣</span> Writing up a shopping list — LOW anxiety (start here)</div>
+    <div class="exposure-rung low"><span class="exposure-num">2️⃣</span> Getting in the car to go to the supermarket</div>
+    <div class="exposure-rung med"><span class="exposure-num">3️⃣</span> Driving to the supermarket</div>
+    <div class="exposure-rung med"><span class="exposure-num">4️⃣</span> Parking in the supermarket car park</div>
+    <div class="exposure-rung med"><span class="exposure-num">5️⃣</span> Entering the supermarket</div>
+    <div class="exposure-rung high"><span class="exposure-num">6️⃣</span> Walking through the supermarket aisles</div>
+    <div class="exposure-rung high"><span class="exposure-num">7️⃣</span> Waiting at the supermarket checkout — HIGH anxiety (end goal)</div>
+  </div>
+  <div class="callout pearl">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content"><strong>Exam Rule</strong><p>Always manage by starting from the LOWEST anxiety step — NEVER throw patient in at the deep end</p></div>
+  </div>
+</div>
+
+<!-- ANXIETY COMPARISON TABLE -->
+<div class="card">
+  <div class="card-title">⚖️ Anxiety Disorders — Master Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Disorder</th><th>Trigger</th><th>Duration</th><th>Key Feature</th><th>1st Line Tx</th><th>Long-term Tx</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Panic Disorder</td><td>No specific trigger (spontaneous)</td><td>Minutes (attacks)</td><td>Recurrent unpredictable attacks; physiological symptoms</td>
+          <td>CBT</td><td>SSRI</td>
+        </tr>
+        <tr>
+          <td>Agoraphobia</td><td>Specific situations (trapped/public places)</td><td>Minutes in trigger</td><td>Avoids public transport, open/closed spaces, crowds</td>
+          <td>CBT + Gradual exposure</td><td>SSRI</td>
+        </tr>
+        <tr>
+          <td>Social Phobia</td><td>Social/performance situations (e.g., public speaking)</td><td>Minutes</td><td>Fear of embarrassment; usually h/o school phobia</td>
+          <td>CBT</td><td>Beta-blocker for short-term, SSRI long-term</td>
+        </tr>
+        <tr>
+          <td>Specific Phobia</td><td>Specific object (animals, heights, planes)</td><td>Minutes</td><td>Circumscribed fear, knows it's irrational</td>
+          <td>Gradual exposure</td><td>CBT</td>
+        </tr>
+        <tr>
+          <td>GAD</td><td>Multiple/life situations</td><td>≥6 months</td><td>≥3 somatic symptoms (restlessness, fatigue, concentration, irritability, muscle tension, sleep disturbance)</td>
+          <td>CBT</td><td>SSRI</td>
+        </tr>
+        <tr>
+          <td>OCD</td><td>Obsessive thoughts → compulsive acts</td><td>Chronic (wax and wane)</td><td>Ego-dystonic; patient recognizes thoughts as own but irrational</td>
+          <td>Exposure + Response Prevention</td><td>SSRI (fluvoxamine in kids)</td>
+        </tr>
+        <tr>
+          <td>PTSD</td><td>Severe traumatic event</td><td>&gt;1 month</td><td>Flashbacks (KEY WORD), avoidance, hyperarousal</td>
+          <td>CBT</td><td>SSRI</td>
+        </tr>
+        <tr>
+          <td>Acute Stress Disorder</td><td>Severe traumatic event</td><td>&lt;1 month</td><td>Same as PTSD but shorter</td>
+          <td>CBT</td><td>—</td>
+        </tr>
+        <tr>
+          <td>Adjustment Disorder</td><td>Identifiable stressor</td><td>&lt;3 months after stressor</td><td>Distress > expected; does NOT meet full MDD criteria</td>
+          <td>Supportive therapy</td><td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PANIC vs AGORAPHOBIA DIFFERENTIATOR -->
+<div class="card">
+  <div class="card-title">🎯 Panic vs Agoraphobia — Key Distinction</div>
+  <div class="three-col">
+    <div class="callout info">
+      <div>
+        <strong>Panic Disorder Only</strong>
+        <p style="font-size:13px; margin-top:6px;">Attacks occur <span class="hl-blue">WITHOUT a specific trigger</span></p>
+      </div>
+    </div>
+    <div class="callout treatment">
+      <div>
+        <strong>Agoraphobia Only</strong>
+        <p style="font-size:13px; margin-top:6px;">Attacks occur <span class="hl-green">ONLY in specific situations</span> (closed places, crowds)</p>
+      </div>
+    </div>
+    <div class="callout pearl">
+      <div>
+        <strong>Panic + Agoraphobia</strong>
+        <p style="font-size:13px; margin-top:6px;">Attacks occur <span class="hl">BOTH with AND without</span> triggers</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OCD -->
+<div class="card">
+  <div class="card-title">🔁 OCD — Key Points</div>
+  <div class="two-col">
+    <div>
+      <div class="callout info">
+        <span class="callout-icon">🧠</span>
+        <div class="callout-content">
+          <strong>Clinical Features</strong>
+          <ul>
+            <li>Obsessions: persistent, unwanted, intrusive thoughts</li>
+            <li>Compulsions: repeated behaviors (washing, checking, counting)</li>
+            <li>Patient KNOWS thoughts are excessive and irrational</li>
+            <li>Patient WANTS to get rid of them (ego-dystonic)</li>
+            <li>Course: waxing and waning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="callout treatment">
+        <span class="callout-icon">💊</span>
+        <div class="callout-content">
+          <strong>Treatment</strong>
+          <ul>
+            <li><strong>Best psychotherapy:</strong> Exposure and Response Prevention</li>
+            <li><strong>Drug of choice:</strong> SSRI</li>
+            <li><strong>In children:</strong> Fluvoxamine</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout pearl">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-content">
+          <strong>Hoarding Disorder</strong>
+          <p>Excessive accumulation + distress when discarding → Treatment: SSRI</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAD SCENARIO -->
+<div class="card">
+  <div class="card-title">🎯 GAD vs Depression — Critical Exam Trap</div>
+  <div class="two-col">
+    <div class="scenario">
+      <div class="q">30yo female, doesn't sleep well, worrying about kids, finances, husband's work?</div>
+      <div class="a">→ <strong>GAD</strong> (worry about multiple life events, ≥6 months, ≥3 somatic symptoms, no full depression picture)</div>
+    </div>
+    <div class="scenario">
+      <div class="q">30yo female, excessive worries AND lost interest in life, not eating or sleeping?</div>
+      <div class="a">→ <strong>Depression</strong> (Once you see Anhedonia + neurovegetative symptoms → say Depression, NOT GAD)</div>
+    </div>
+  </div>
+  <div class="callout danger">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-content">
+      <strong>Rule</strong>
+      <p>If you see full depression criteria → diagnose Depression, even if there is concurrent anxiety. <strong>Long-term complication of GAD = Depression</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ADJUSTMENT DISORDER -->
+<div class="card">
+  <div class="card-title">📅 Adjustment Disorder</div>
+  <div class="two-col">
+    <div class="info-card">
+      <h5>Key Features</h5>
+      <ul>
+        <li>Emotional/behavioral reaction to a stressful event</li>
+        <li>Response within <strong>3 months</strong> of the event</li>
+        <li>Disproportionate to the stressor</li>
+        <li>Does NOT meet criteria for another disorder</li>
+      </ul>
+    </div>
+    <div class="scenario" style="margin:0">
+      <div class="q">Patient separated from boyfriend + full depression picture?</div>
+      <div class="a">→ Diagnose as <strong>Depression</strong>, NOT Adjustment Disorder<br>(if full criteria met → always diagnose the primary disorder)</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  CHILDHOOD PSYCHIATRIC DISORDERS                             -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fef9c3;">👶</div>
+  <h2>Childhood Psychiatric Disorders</h2>
+  <span class="priority-label">🔴 HIGH PRIORITY</span>
+</div>
+
+<!-- ADHD -->
+<div class="card">
+  <div class="card-title">⚡ ADHD — Attention Deficit Hyperactivity Disorder</div>
+  <div class="two-col">
+    <div>
+      <div class="callout info">
+        <span class="callout-icon">📋</span>
+        <div class="callout-content">
+          <strong>Key Facts</strong>
+          <ul>
+            <li>Age of onset: <strong>5–7 years</strong></li>
+            <li>Male &gt; Female</li>
+            <li>Prognosis: <span class="hl">Usually persists into adulthood</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout info">
+        <span class="callout-icon">🔍</span>
+        <div class="callout-content">
+          <strong>Three Core Features</strong>
+          <ul>
+            <li><strong>Inattention:</strong> Can't concentrate, forgets instructions, switches tasks</li>
+            <li><strong>Hyperactivity:</strong> Constant fidgeting, restless</li>
+            <li><strong>Impulsivity:</strong> Acts without thinking, can't wait in line, can't follow orders/rules</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="callout treatment">
+        <span class="callout-icon">💊</span>
+        <div class="callout-content">
+          <strong>Management (STEP BY STEP)</strong>
+          <ul>
+            <li><strong>1st step:</strong> Call teacher → ask for school record (collect history)</li>
+            <li><strong>Medication 1st line:</strong> Methylphenidate OR Dexamphetamine</li>
+            <li><strong>Non-compliant/can't take at school:</strong> Give long-acting form</li>
+            <li><strong>If adult requests Rx after long gap:</strong> Rule out abuse/addiction</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout danger">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-content">
+          <strong>Differential Diagnosis</strong>
+          <p>ADHD-like picture + <span class="hl-red">Speech delay</span> = <strong>Think DEAFNESS first!</strong> → Do hearing test</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTISM vs ASPERGER'S -->
+<div class="card">
+  <div class="card-title">⚖️ Autism vs Asperger's Syndrome</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Autism</th><th>Asperger's Syndrome</th></tr></thead>
+      <tbody>
+        <tr><td>Age of onset</td><td>Before 3 years</td><td>Usually later recognition</td></tr>
+        <tr><td>Language delay</td><td><span class="badge red">Yes — prominent</span></td><td><span class="badge green">No — language normal</span></td></tr>
+        <tr><td>Cognitive delay</td><td>Often present (low IQ)</td><td><span class="badge green">No — IQ normal</span></td></tr>
+        <tr><td>Social impairment</td><td>Severe (no eye contact, no friends, no play)</td><td>Present but milder</td></tr>
+        <tr><td>Repetitive behavior</td><td>Yes — fascination with toys, routine</td><td>Yes</td></tr>
+        <tr><td>Communication</td><td>Severely impaired verbal + non-verbal</td><td>Primarily social impairment</td></tr>
+        <tr><td>Most important criteria</td><td>Repetitive behavior + delayed speech + poor communication</td><td>Social impairment without language delay</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TOURETTE'S & TIC DISORDERS -->
+<div class="card">
+  <div class="card-title">🔄 Tic Disorders — Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Condition</th><th>Tics</th><th>Duration</th><th>Treatment</th></tr></thead>
+      <tbody>
+        <tr><td>Transient Tic Disorder</td><td>Motor OR vocal (not both)</td><td>&lt;12 months</td><td>CBT, reassurance</td></tr>
+        <tr><td>Chronic Tic Disorder</td><td>Motor OR vocal (not both)</td><td>&gt;12 months</td><td>CBT, Clonidine</td></tr>
+        <tr><td>Tourette's Syndrome</td><td><span class="badge red">Motor AND vocal (both)</span></td><td>Lifelong</td><td>CBT, <strong>Clonidine (1st line)</strong>, Antipsychotics</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="two-col" style="margin-top:12px">
+    <div class="callout pearl">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-content">
+        <strong>Tourette's Key Facts</strong>
+        <ul>
+          <li>Usually boys; Autosomal dominant genetics</li>
+          <li>Associations: ADHD (most common), OCD, learning disorders</li>
+          <li>Coprolalia (saying obscene words) = vocal tic</li>
+          <li>Course: wax and wane</li>
+          <li>Tics preceded by urge → tic → relief cycle</li>
+          <li>Patient CAN suppress briefly → followed by rebound</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout info">
+      <span class="callout-icon">💊</span>
+      <div class="callout-content">
+        <strong>Tourette's Treatment</strong>
+        <ul>
+          <li><strong>1st line:</strong> CBT + Clonidine (now preferred over antipsychotics)</li>
+          <li><strong>2nd line:</strong> Antipsychotics (Haloperidol)</li>
+          <li>Prognosis: usually lifelong</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ODD vs CONDUCT DISORDER -->
+<div class="card">
+  <div class="card-title">⚖️ Oppositional Defiant Disorder vs Conduct Disorder</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>ODD</th><th>Conduct Disorder</th></tr></thead>
+      <tbody>
+        <tr><td>Crimes / law breaking</td><td><span class="badge green">No crimes</span></td><td><span class="badge red">Yes — crimes, truancy, vandalism</span></td></tr>
+        <tr><td>Violence towards animals</td><td><span class="badge green">No</span></td><td><span class="badge red">Yes</span></td></tr>
+        <tr><td>Behavior</td><td>Temper tantrums, argumentative, angry, spiteful, vindictive</td><td>Bullying, weapons, forced sex, fire-setting, stealing, drugs</td></tr>
+        <tr><td>Age</td><td>Any (school age)</td><td>Any (&lt;18)</td></tr>
+        <tr><td>Long-term outcome</td><td>May resolve or progress</td><td><span class="badge red">Antisocial Personality Disorder (≥18)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout pearl" style="margin-top:12px">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content">
+      <strong>Key Differentiators</strong>
+      <ul>
+        <li>Aggressive child + history of revenge but <strong>NO crimes</strong> = <span class="hl">ODD</span></li>
+        <li>Aggressive child <strong>even toward animals + Commit crimes</strong> = <span class="hl">Conduct Disorder</span></li>
+        <li>Conduct disorder + 18yo = Antisocial Personality Disorder</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SELECTIVE MUTISM -->
+<div class="callout info">
+  <span class="callout-icon">🤫</span>
+  <div class="callout-content">
+    <strong>Selective Mutism</strong>
+    <p>Child unable to speak in certain social settings (e.g., school) BUT can speak at home where comfortable and safe. NOT a speech disorder — they CAN speak.</p>
+  </div>
+</div>
+
+<!-- CHILDHOOD QUICK REFERENCE -->
+<div class="card">
+  <div class="card-title">🎯 Childhood Disorder — Quick Scenario Reference</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Clinical Scenario</th><th>Diagnosis</th></tr></thead>
+      <tbody>
+        <tr><td>5yo boy, can't sit still, no concentration, poor grades, impulsive at school AND home</td><td>ADHD</td></tr>
+        <tr><td>Same picture + speech delay</td><td>Rule out Deafness first</td></tr>
+        <tr><td>2yo, no eye contact, no speech, repetitive with toys, no friends, outburst if routine changes</td><td>Autism</td></tr>
+        <tr><td>Same but normal IQ, normal speech, just socially impaired</td><td>Asperger's</td></tr>
+        <tr><td>Boy with eye blinking + throat grunting (both motor AND vocal), &gt;1 year</td><td>Tourette's Syndrome</td></tr>
+        <tr><td>Child only eye blinking, no vocal tics, &gt;1 year</td><td>Chronic Motor Tic Disorder</td></tr>
+        <tr><td>14yo, multiple crimes, drugs, alcohol, aggression, cruelty to animals</td><td>Conduct Disorder</td></tr>
+        <tr><td>Same picture, 20yo</td><td>Antisocial Personality Disorder</td></tr>
+        <tr><td>Child argues, has tantrums, resentful, spiteful — no crimes, no cruelty to animals</td><td>ODD</td></tr>
+        <tr><td>Child speaks normally at home but completely silent at school</td><td>Selective Mutism</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  PSYCHOTHERAPY QUICK REFERENCE                               -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#f0fdf4;">🧠</div>
+  <h2>Psychotherapy — Quick Reference</h2>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 Which Therapy for Which Condition?</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Condition</th><th>Specific Psychotherapy</th></tr></thead>
+      <tbody>
+        <tr><td>Borderline Personality Disorder</td><td>Dialectical Behavioral Therapy (DBT) / Psychodynamic therapy</td></tr>
+        <tr><td>OCD</td><td>Exposure and Response Prevention</td></tr>
+        <tr><td>Panic Disorder / Phobias</td><td>CBT + Gradual/Graded Exposure</td></tr>
+        <tr><td>Kleptomania</td><td>Aversion therapy</td></tr>
+        <tr><td>MDD / Most anxiety disorders</td><td>CBT + Problem Solving</td></tr>
+        <tr><td>Antisocial PD</td><td>CBT</td></tr>
+        <tr><td>Somatization / Conversion / Hypochondriasis</td><td>CBT / Psychotherapy + regular single physician follow-up</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- /container -->
+<footer>File 2 of 3 · AMC1 Psychiatry Exam Prep · Anxiety, Personality & Childhood Disorders · Based on RANZCP/AMC Guidelines</footer>
+</body>
+</html>

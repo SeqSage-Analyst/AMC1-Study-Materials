@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 3 — Neurocognitive, Pharmacology & Other | AMC1 Psychiatry Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6f2; --card: #ffffff; --navy: #1a2744; --blue: #2563eb;
+    --red: #dc2626; --orange: #ea580c; --green: #16a34a; --purple: #7c3aed;
+    --yellow: #d97706; --teal: #0891b2; --border: #e2e8f0; --text: #1e293b;
+    --muted: #64748b; --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 15px; }
+
+  .page-header { background: linear-gradient(135deg, #1e1a44 0%, #7c3aed 100%); color: white; padding: 36px 48px; position: relative; overflow: hidden; }
+  .page-header::after { content: ''; position: absolute; right: -60px; top: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+  .file-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #c4b5fd; margin-bottom: 8px; }
+  .page-header h1 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 6px; }
+  .page-header p { color: #ede9fe; font-size: 14px; }
+  .priority-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .chip { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .chip.hot { background: rgba(220,38,38,0.5); border-color: rgba(220,38,38,0.7); }
+
+  .container { max-width: 980px; margin: 0 auto; padding: 32px 24px; }
+
+  .section-title { display: flex; align-items: center; gap: 12px; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .section-title .icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .section-title h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--navy); }
+  .section-title .priority-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 8px; border-radius: 4px; background: #fee2e2; color: var(--red); margin-left: auto; white-space: nowrap; }
+
+  .card { background: var(--card); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; margin-bottom: 20px; border: 1px solid var(--border); }
+  .card-title { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 14px; }
+
+  .callout { border-radius: 10px; padding: 14px 18px; margin: 14px 0; display: flex; gap: 12px; align-items: flex-start; }
+  .callout .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout-content { flex: 1; }
+  .callout-content strong { display: block; margin-bottom: 4px; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .callout p, .callout li { font-size: 14px; }
+  .callout ul { padding-left: 16px; }
+  .callout li { margin-bottom: 3px; }
+  .callout.pearl { background: #fefce8; border-left: 4px solid var(--yellow); }
+  .callout.pearl strong { color: var(--yellow); }
+  .callout.danger { background: #fef2f2; border-left: 4px solid var(--red); }
+  .callout.danger strong { color: var(--red); }
+  .callout.treatment { background: #f0fdf4; border-left: 4px solid var(--green); }
+  .callout.treatment strong { color: var(--green); }
+  .callout.trap { background: #fff7ed; border-left: 4px solid var(--orange); }
+  .callout.trap strong { color: var(--orange); }
+  .callout.info { background: #eff6ff; border-left: 4px solid var(--blue); }
+  .callout.info strong { color: var(--blue); }
+  .callout.purple { background: #faf5ff; border-left: 4px solid var(--purple); }
+  .callout.purple strong { color: var(--purple); }
+
+  .table-wrap { overflow-x: auto; margin: 14px 0; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: var(--navy); color: white; }
+  thead th { padding: 11px 14px; text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:hover { background: #faf5ff; }
+  td { padding: 10px 14px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+  .badge.green { background: #dcfce7; color: var(--green); }
+  .badge.red { background: #fee2e2; color: var(--red); }
+  .badge.blue { background: #dbeafe; color: var(--blue); }
+  .badge.orange { background: #ffedd5; color: var(--orange); }
+  .badge.purple { background: #ede9fe; color: var(--purple); }
+  .badge.teal { background: #cffafe; color: var(--teal); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media(max-width: 700px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+
+  .info-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .info-card h5 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .info-card ul { padding-left: 16px; }
+  .info-card li { font-size: 13px; margin-bottom: 3px; }
+
+  .hl { background: #fef9c3; padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+  .hl-red { background: #fee2e2; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--red); }
+  .hl-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--green); }
+  .hl-blue { background: #dbeafe; padding: 1px 4px; border-radius: 3px; font-weight: 600; color: var(--blue); }
+
+  .scenario { background: #fdf4ff; border: 1px solid #d8b4fe; border-radius: 8px; padding: 12px 16px; margin: 8px 0; }
+  .scenario .q { font-size: 13px; color: var(--purple); font-weight: 600; margin-bottom: 4px; }
+  .scenario .a { font-size: 13px; }
+
+  .dur { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--navy); color: white; padding: 2px 8px; border-radius: 4px; display: inline-block; }
+  .divider { height: 1px; background: var(--border); margin: 30px 0; }
+
+  /* DRUG TABLE SPECIAL */
+  .drug-name { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: var(--purple); }
+
+  /* FLOWCHART */
+  .flowchart { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 16px 0; }
+  .flow-step { background: var(--navy); color: white; border-radius: 10px; padding: 12px 22px; text-align: center; width: 100%; max-width: 520px; font-size: 14px; font-weight: 600; }
+  .flow-step.green-step { background: var(--green); }
+  .flow-step.red-step { background: var(--red); }
+  .flow-step.blue-step { background: var(--blue); }
+  .flow-step.orange-step { background: var(--orange); }
+  .flow-step.purple-step { background: var(--purple); }
+  .flow-sub { font-size: 12px; font-weight: 400; opacity: 0.85; margin-top: 4px; }
+  .flow-arrow { width: 2px; height: 24px; background: var(--border); position: relative; margin: 0 auto; }
+  .flow-arrow::after { content: '▼'; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: var(--muted); font-size: 12px; }
+  .flow-condition { background: #fefce8; border: 2px solid var(--yellow); border-radius: 8px; padding: 8px 16px; text-align: center; font-size: 13px; font-weight: 600; color: #92400e; width: 100%; max-width: 520px; }
+
+  footer { text-align: center; padding: 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="file-badge">📁 File 3 of 3 — AMC1 Psychiatry Exam Prep</div>
+  <h1>Neurocognitive, Pharmacology & Other Topics</h1>
+  <p>Dementia · Delirium · Psychopharmacology · Substance Abuse · Eating Disorders · Sleep · Other</p>
+  <div class="priority-chips">
+    <span class="chip hot">🔴🔴 Dementia — TOP PRIORITY</span>
+    <span class="chip">Delirium</span>
+    <span class="chip">Psychopharmacology</span>
+    <span class="chip">Substance Abuse</span>
+    <span class="chip">Eating Disorders</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<!--  DEMENTIA                                                     -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fef2f2;">🧠</div>
+  <h2>Dementia & Its Types</h2>
+  <span class="priority-label">🔴🔴 TOP PRIORITY</span>
+</div>
+
+<!-- DEFINITION + AUSTRALIAFACT -->
+<div class="two-col">
+  <div class="callout danger">
+    <span class="callout-icon">🇦🇺</span>
+    <div class="callout-content">
+      <strong>Australian Context — Must Know</strong>
+      <ul>
+        <li>#1 psychiatric disease increasing in incidence in Australia = <span class="hl-red">Dementia</span></li>
+        <li>Dementia = <span class="hl-red">2nd most common cause of death</span> in Australia</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">📋</span>
+    <div class="callout-content">
+      <strong>Definition & Core Symptoms</strong>
+      <p>Global cognitive impairment affecting memory + at least one of:<br>
+      <strong>A</strong>phasia · <strong>A</strong>praxia · <strong>A</strong>gnosia · impaired executive function</p>
+    </div>
+  </div>
+</div>
+
+<!-- MMSE -->
+<div class="card">
+  <div class="card-title">📊 MMSE Scoring + Dementia Work-up</div>
+  <div class="two-col">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Score (out of 30)</th><th>Severity</th></tr></thead>
+        <tbody>
+          <tr><td>19–24</td><td><span class="badge orange">Mild impairment</span></td></tr>
+          <tr><td>10–18</td><td><span class="badge red">Moderate impairment</span></td></tr>
+          <tr><td>≤9</td><td><span class="badge red">Severe impairment</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-card">
+      <h5>Dementia Work-Up</h5>
+      <ul>
+        <li><strong>Labs:</strong> TSH, RPR (syphilis), Folate, B12</li>
+        <li><strong>Imaging:</strong> CT brain (brain atrophy)</li>
+        <li><strong>If 1 test positive:</strong> Do another confirmatory test</li>
+        <li><strong>1st advice:</strong> Increase social + physical activities</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- DEMENTIA TYPES MASTER TABLE -->
+<div class="card">
+  <div class="card-title">⭐ Dementia Types — Master Comparison (The Most Tested Table)</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Frequency</th><th>Key Features</th><th>Pathology</th><th>Treatment</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--red);font-weight:700;">Alzheimer's Disease</td>
+          <td><span class="badge red">50% (most common)</span></td>
+          <td>
+            <strong>Memory first affected (early)</strong><br>
+            Face recognition = last affected<br>
+            Progressive, insidious onset<br>
+            Risk factors: Female, family h/o, head trauma, Down syndrome<br>
+            NOT preventable nor curable
+          </td>
+          <td>CT: diffuse cortical atrophy<br>↓ ACh (cholinergic deficit)</td>
+          <td>
+            <strong>Donepezil</strong> (cholinesterase inhibitor) OR<br>
+            <strong>Memantine</strong> (best if cardiac/bradycardia)<br>
+            + increase social/physical activity
+          </td>
+        </tr>
+        <tr>
+          <td>Vascular Dementia<br>(Multi-infarct)</td>
+          <td><span class="badge orange">25% (2nd most common)</span></td>
+          <td>
+            <strong>H/o stroke or vascular risk factors</strong> (HTN, DM, age)<br>
+            <strong>Focal neurological deficits</strong> (weakness, numbness)<br>
+            Stepwise progression (not gradual)
+          </td>
+          <td>CT: Multiple infarcts</td>
+          <td>Control vascular risk factors (BP, glucose), antiplatelets</td>
+        </tr>
+        <tr>
+          <td>Lewy Body Dementia</td>
+          <td><span class="badge blue">~15%</span></td>
+          <td>
+            Dementia +<br>
+            <strong>Parkinsonism</strong> (rigidity, bradykinesia, mask face, tremor) +<br>
+            <span style="color:var(--red);font-weight:700;">Visual Hallucinations</span> (KEY WORD)
+          </td>
+          <td>Lewy body inclusions in cortex</td>
+          <td>Cholinesterase inhibitors<br>⚠️ Avoid typical antipsychotics (severe sensitivity)</td>
+        </tr>
+        <tr>
+          <td>Frontal Lobe Dementia<br>(Pick's Disease)</td>
+          <td><span class="badge blue">~5%</span></td>
+          <td>
+            Dementia +<br>
+            <span style="color:var(--red);font-weight:700;">Sudden, significant personality change</span><br>
+            Very strange behavior, disinhibition<br>
+            Atrophy of frontal + temporal lobes
+          </td>
+          <td>Frontotemporal atrophy</td>
+          <td>Supportive; SSRIs for behavioral symptoms</td>
+        </tr>
+        <tr>
+          <td>Normal Pressure Hydrocephalus (NPH)</td>
+          <td><span class="badge teal">Rare but important</span></td>
+          <td>
+            Classic Triad:<br>
+            <span style="color:var(--red);font-weight:700;">Dementia + Urinary incontinence + Gait ataxia</span><br>
+            (Wet, Wobbly, Wacky)
+          </td>
+          <td>↓ CSF drainage → Enlarged ventricles (normal pressure)</td>
+          <td><span style="color:var(--green);font-weight:700;">SHUNT surgery (treatable!)</span></td>
+        </tr>
+        <tr>
+          <td>Huntington's Disease</td>
+          <td><span class="badge purple">Rare</span></td>
+          <td>
+            Autosomal dominant, familial<br>
+            Classic Triad:<br>
+            <span style="color:var(--red);font-weight:700;">Dementia + Personality changes + Chorea</span><br>
+            Onset: 40s | Death within 20 years
+          </td>
+          <td>Caudate nucleus atrophy</td>
+          <td>Symptomatic; no cure<br>⚠️ Do NOT test minors unless very high clinical suspicion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- DEMENTIA QUICK DIFFERENTIATOR -->
+<div class="card">
+  <div class="card-title">🎯 Dementia Type — Instant Identifier</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Clinical Clue</th><th>Diagnosis</th></tr></thead>
+      <tbody>
+        <tr><td>Dementia + Visual hallucinations</td><td><span class="badge red">Lewy Body Dementia</span></td></tr>
+        <tr><td>Dementia + Urinary incontinence + Gait ataxia</td><td><span class="badge teal">Normal Pressure Hydrocephalus</span></td></tr>
+        <tr><td>Dementia + After stroke / Focal deficits</td><td><span class="badge orange">Vascular Dementia</span></td></tr>
+        <tr><td>Dementia + Sudden significant personality change</td><td><span class="badge purple">Frontal Lobe (Pick's) Dementia</span></td></tr>
+        <tr><td>Dementia + Chorea + Autosomal dominant</td><td><span class="badge purple">Huntington's Disease</span></td></tr>
+        <tr><td>Dementia with NONE of the above — gradual onset</td><td><span class="badge red">Alzheimer's Disease</span></td></tr>
+        <tr><td>Apparent dementia + Marked improvement with antidepressants</td><td><strong>Pseudodementia = Depression</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- DEMENTIA vs DELIRIUM vs PSEUDODEMENTIA -->
+<div class="card">
+  <div class="card-title">⚖️ Dementia vs Delirium vs Normal Aging vs Pseudodementia</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Dementia</th><th>Delirium</th><th>Normal Aging</th><th>Pseudodementia (Depression)</th></tr></thead>
+      <tbody>
+        <tr><td>Onset</td><td>Insidious, gradual</td><td><span class="badge red">Acute</span></td><td>Very gradual</td><td>Related to depressive episode</td></tr>
+        <tr><td>Consciousness</td><td>Clear (early)</td><td>Fluctuating, waxing/waning</td><td>Clear</td><td>Clear</td></tr>
+        <tr><td>Course</td><td>Progressive</td><td>Fluctuating (worse at night)</td><td>Stable</td><td>Improves with antidepressants</td></tr>
+        <tr><td>Hallucinations</td><td>Sometimes (late)</td><td>Common</td><td>Absent</td><td>Rare</td></tr>
+        <tr><td>Reversible?</td><td>No (mostly)</td><td><span class="badge green">Yes (if cause treated)</span></td><td>N/A</td><td><span class="badge green">Yes</span></td></tr>
+        <tr><td>Daily function</td><td>Impaired</td><td>Impaired</td><td><span class="badge green">NORMAL — lives independently</span></td><td>Impaired</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout pearl">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content">
+      <strong>HRT Pearl</strong>
+      <p>HRT (Hormone Replacement Therapy) <span class="hl">decreases incidence of Alzheimer's</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- DELIRIUM -->
+<div class="card">
+  <div class="card-title">⚡ Delirium (Acute Confusion) — Key Points</div>
+  <div class="two-col">
+    <div>
+      <div class="callout info">
+        <span class="callout-icon">📋</span>
+        <div class="callout-content">
+          <strong>Clinical Features</strong>
+          <ul>
+            <li>Acute onset — <strong>waxing and waning</strong> consciousness</li>
+            <li>Worse at night (<span class="hl-blue">sundowning</span>)</li>
+            <li>Hallucinations, illusions, delusions</li>
+            <li>Disturbed sleep-wake cycle</li>
+            <li>Combative, anxious, paranoid, or stuporous</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout danger">
+        <span class="callout-icon">🔍</span>
+        <div class="callout-content">
+          <strong>Common Causes</strong>
+          <ul>
+            <li><strong>UTI</strong> — very common in elderly (occult UTI) → do urine analysis</li>
+            <li>New or multiple medications</li>
+            <li>Post-surgery</li>
+            <li>Acute medical condition</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="callout treatment">
+        <span class="callout-icon">💊</span>
+        <div class="callout-content">
+          <strong>Treatment</strong>
+          <ul>
+            <li><strong>1st:</strong> Non-pharmacological re-orientation</li>
+            <li><strong>Violent patient:</strong> IM Haloperidol + physical restraints if needed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout pearl">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-content">
+          <strong>2 most common causes of agitation after hospital admission</strong>
+          <p>1. Delirium → IM Haloperidol<br>2. Alcohol withdrawal → Diazepam</p>
+        </div>
+      </div>
+      <div class="callout trap">
+        <span class="callout-icon">🚨</span>
+        <div class="callout-content">
+          <strong>If patient attacks you at home</strong>
+          <p>→ <span class="hl">LEAVE IMMEDIATELY</span> — do not engage</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AGITATED PATIENT ALGORITHM -->
+<div class="card">
+  <div class="card-title">🔀 Agitated Patient — Management Algorithm</div>
+  <div class="flowchart">
+    <div class="flow-step red-step">If in hospital/clinic → Call security FIRST<div class="flow-sub">If at patient's home → LEAVE immediately</div></div>
+    <div class="flow-arrow"></div>
+    <div class="flow-step blue-step">Then: Give Medication (IM)</div>
+  </div>
+  <div class="table-wrap" style="margin-top:12px">
+    <table>
+      <thead><tr><th>Patient Type</th><th>Drug of Choice</th></tr></thead>
+      <tbody>
+        <tr><td>Psychotic patient</td><td>Antipsychotic (e.g., IM Haloperidol)</td></tr>
+        <tr><td>Delirious patient</td><td>Antipsychotic</td></tr>
+        <tr><td>Post-operative</td><td>Antipsychotic</td></tr>
+        <tr><td>Mentally retarded child</td><td>Risperidone</td></tr>
+        <tr><td>Amphetamine / drug toxicity</td><td>Benzodiazepine</td></tr>
+        <tr><td>Alcohol intoxication/withdrawal</td><td>Diazepam (oral)</td></tr>
+        <tr><td>Alcohol + liver impairment</td><td>Lorazepam (no liver metabolism)</td></tr>
+        <tr><td>Significantly agitated</td><td>IM Lorazepam</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  PSYCHOPHARMACOLOGY                                          -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#eff6ff;">💊</div>
+  <h2>Psychopharmacology</h2>
+</div>
+
+<!-- SSRI -->
+<div class="card">
+  <div class="card-title">💊 SSRIs — The Most Important Drug Class</div>
+  <div class="two-col">
+    <div>
+      <div class="info-card">
+        <h5>SSRIs List</h5>
+        <ul>
+          <li class="drug-name">Fluoxetine</li>
+          <li class="drug-name">Sertraline (↑ suicide risk)</li>
+          <li class="drug-name">Escitalopram</li>
+          <li class="drug-name">Paroxetine</li>
+          <li class="drug-name">Citalopram</li>
+        </ul>
+      </div>
+      <div class="info-card" style="margin-top:10px">
+        <h5>SSRI Side Effects</h5>
+        <ul>
+          <li>GI symptoms (most common side effect)</li>
+          <li>Sexual dysfunction (delayed ejaculation)</li>
+          <li>↑ Suicidal risk (especially Sertraline)</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="callout pearl">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-content">
+          <strong>SSRI Special Scenarios</strong>
+          <ul>
+            <li>GI side effects not tolerated → Switch to another SSRI</li>
+            <li>Sexual side effects → Reassure and wait (usually resolve spontaneously)</li>
+            <li>Erectile dysfunction → Can add Sildenafil</li>
+            <li>SSRI delayed ejaculation → Best Rx for premature ejaculation!</li>
+            <li>Nifedipine + Sertraline → Palpitations + hypotension (SSRI increases Nifedipine level)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout info">
+        <span class="callout-icon">🔄</span>
+        <div class="callout-content">
+          <strong>How to Switch between SSRIs</strong>
+          <p>1. Gradually stop old SSRI → 2. Washout period (few days) → 3. Gradually introduce new SSRI</p>
+          <p style="margin-top:6px;"><strong>Discontinuation Syndrome:</strong> Sudden stop → restart and taper over ≥2 weeks</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEROTONIN SYNDROME vs NMS -->
+<div class="card">
+  <div class="card-title">⭐ Serotonin Syndrome vs Neuroleptic Malignant Syndrome — Critical Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Serotonin Syndrome</th><th>NMS (Neuroleptic Malignant Syndrome)</th></tr></thead>
+      <tbody>
+        <tr><td>Cause</td><td>SSRI + MDMA/LSD/cocaine/amphetamine/MAOI</td><td>Antipsychotics (typical)</td></tr>
+        <tr><td>Key Word</td><td><span class="badge red">Hypertonia + Hyperreflexia</span></td><td><span class="badge red">High fever + Muscle RIGIDITY</span></td></tr>
+        <tr><td>Fever</td><td>Present</td><td>Present (high grade)</td></tr>
+        <tr><td>Pupils</td><td>Dilated</td><td>Variable</td></tr>
+        <tr><td>Sweating</td><td>Profuse</td><td>Present</td></tr>
+        <tr><td>Consciousness</td><td>Confusion, agitation</td><td>Impaired</td></tr>
+        <tr><td>Lab findings</td><td>HTN, Tachycardia</td><td><span class="badge red">Elevated CK</span>, Autonomic instability</td></tr>
+        <tr><td>Treatment</td><td>Stop offending drug + Stop SSRI + BZD for agitation + Hospitalization</td><td>Stop antipsychotic + <strong>Dantrolene OR Bromocriptine</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout pearl">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content">
+      <strong>Classic AMC Scenario for Serotonin Syndrome</strong>
+      <p>Young male on SSRI went to party → brought to ED confused, tachycardic, HTN, sweating → <strong>Serotonin Syndrome</strong><br>
+      SSRI + MDMA (Ecstasy) = synergistic effect (very common exam scenario)</p>
+    </div>
+  </div>
+</div>
+
+<!-- TCA -->
+<div class="card">
+  <div class="card-title">⚠️ Tricyclic Antidepressants (TCAs)</div>
+  <div class="two-col">
+    <div class="info-card">
+      <h5>TCA Names</h5>
+      <ul>
+        <li class="drug-name">Nortriptyline · Desipramine · Amitriptyline · Imipramine · Doxepin</li>
+      </ul>
+      <h5 style="margin-top:12px;">Indications</h5>
+      <ul>
+        <li>Depression, anxiety</li>
+        <li>Chronic pain / fibromyalgia</li>
+        <li>Migraine prophylaxis</li>
+        <li>Enuresis (Imipramine)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="callout danger">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-content">
+          <strong>TCA Toxicity — Must Know</strong>
+          <ul>
+            <li>Risk: <span class="hl-red">Arrhythmia (V.Tach)</span></li>
+            <li>ECG: <span class="hl-red">QRS prolongation</span></li>
+            <li>Treatment: <span class="hl-red">IV NaHCO₃</span> (ONLY if QRS prolonged)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="scenario">
+        <div class="q">Elderly brought to ED confused, empty bottle beside her, ECG shows prolonged QRS?</div>
+        <div class="a">→ TCA Toxicity → Give IV NaHCO₃</div>
+      </div>
+      <div class="callout info" style="margin-top:8px">
+        <div class="callout-content">
+          <strong>TCA Side Effects (ANTI-ChE)</strong>
+          <p>Anticholinergic: Dry mouth, constipation, urinary retention, sedation, diplopia, delirium<br>Also: Hyperprolactinemia, sexual problems</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LITHIUM -->
+<div class="card">
+  <div class="card-title">🧲 Lithium — First Line Mood Stabilizer</div>
+  <div class="two-col">
+    <div>
+      <div class="info-card">
+        <h5>Indications</h5>
+        <ul>
+          <li>Mania (acute)</li>
+          <li>Bipolar (long-term prevention)</li>
+          <li>Best for bipolar depression</li>
+        </ul>
+      </div>
+      <div class="callout pearl" style="margin-top:10px">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-content">
+          <strong>Routine Monitoring</strong>
+          <p>Kidney function tests + Thyroid function tests</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="callout danger">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-content">
+          <strong>Lithium Toxicity (Narrow Therapeutic Index)</strong>
+          <ul>
+            <li>Drugs precipitating toxicity: <span class="hl-red">ACEi, NSAIDs, Thiazides</span></li>
+            <li>Most common symptom: <span class="hl-red">Tremor</span></li>
+            <li>Cut-off level: 2.5 mmol/L</li>
+            <li>Treatment of choice: <span class="hl-red">Dialysis</span></li>
+            <li>Fine tremors in patient on lithium → Give Beta-blocker</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="callout trap" style="margin-top:8px">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-content">
+      <strong>Lithium Side Effects</strong>
+      <p>Nephrogenic DI (thirst, polyuria) · Acne · Hypothyroidism (weight gain) · Nausea, diarrhea, seizures · <span class="hl">Teratogenicity</span> · Tremor (very common)</p>
+    </div>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-content">
+      <strong>Other Mood Stabilizers</strong>
+      <p><strong>Valproic acid:</strong> Mania + Bipolar; Teratogenic<br>
+      <strong>Lamotrigine:</strong> Bipolar depression; Can cause <span class="hl-red">severe rash</span> — monitor closely</p>
+    </div>
+  </div>
+</div>
+
+<!-- ANTIPSYCHOTICS -->
+<div class="card">
+  <div class="card-title">🔬 Antipsychotics — Typical vs Atypical</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Typical (1st Gen)</th><th>Atypical (2nd Gen)</th></tr></thead>
+      <tbody>
+        <tr><td>Examples</td><td>Haloperidol, Droperidol, Fluphenazine, Thioridazine, Chlorpromazine</td><td>Clozapine, Risperidone, Olanzapine, Quetiapine, Aripiprazole</td></tr>
+        <tr><td>Mechanism</td><td>D2 blockade</td><td>D2 + 5-HT2 blockade</td></tr>
+        <tr><td>EPS risk</td><td><span class="badge red">High</span></td><td><span class="badge green">Lower</span></td></tr>
+        <tr><td>Metabolic effects</td><td>Less</td><td>More (weight gain, DM, HLD)</td></tr>
+        <tr><td>Prolactin elevation</td><td>Yes</td><td>Some (Risperidone = most)</td></tr>
+        <tr><td>Preferred for</td><td>Acute agitation (IM Haloperidol)</td><td>1st-line schizophrenia, bipolar</td></tr>
+        <tr><td>Least effective</td><td>—</td><td>Quetiapine (but fewest SE)</td></tr>
+        <tr><td>Fewest SE</td><td>—</td><td>Ziprasidone, Aripiprazole</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- EPS -->
+<div class="card">
+  <div class="card-title">⚡ Extrapyramidal Side Effects (EPS) — All 5 Types</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Onset</th><th>Key Feature</th><th>Treatment</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Neuroleptic Malignant Syndrome (NMS)</td><td>Any time</td>
+          <td><span class="badge red">HIGH FEVER + RIGIDITY</span> + Autonomic instability + ↑CK + Impaired consciousness</td>
+          <td>STOP drug + <strong>Dantrolene or Bromocriptine</strong></td>
+        </tr>
+        <tr>
+          <td>Acute Dystonia</td><td>Hours–days</td>
+          <td>Involuntary muscle spasms (torticollis, oculogyric crisis)</td>
+          <td><strong>Benztropine or Diphenhydramine</strong></td>
+        </tr>
+        <tr>
+          <td>Akathisia</td><td>Days–weeks</td>
+          <td>Restlessness in legs, continuous walking/movement</td>
+          <td>Decrease dose + Beta-blockers or Diazepam</td>
+        </tr>
+        <tr>
+          <td>Tardive Dyskinesia</td><td>Months–years</td>
+          <td>Involuntary movements (especially tongue/lips/face)</td>
+          <td>Discontinue medication</td>
+        </tr>
+        <tr>
+          <td>Pseudoparkinsonism</td><td>Weeks</td>
+          <td>Shuffling gait, rigidity, tremor (mimics Parkinson's)</td>
+          <td>Reduce dose; Anticholinergics; Note: Antipsychotics worsen true Parkinson's</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ATYPICAL ANTIPSYCHOTICS KEY SE -->
+<div class="card">
+  <div class="card-title">🎯 Atypical Antipsychotics — Individual Side Effect Profiles</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Drug</th><th>Most Important SE</th><th>Key Monitoring</th></tr></thead>
+      <tbody>
+        <tr><td>Clozapine</td><td><span class="badge red">Agranulocytosis</span> (life-threatening)<br>Also: Weight gain, DM, palpitations (most common arrhythmia)</td><td><span class="badge red">CBC regularly</span>; if infection → STOP immediately</td></tr>
+        <tr><td>Olanzapine</td><td>Marked sedation (1st SE), weight gain, DM, hyperlipidemia</td><td>Blood glucose + lipid profile</td></tr>
+        <tr><td>Risperidone</td><td>Insomnia (1st SE), weight gain, DM, HLD, <span class="badge red">Hyperprolactinemia</span> (↑prolactin &gt;5000 → think Prolactinoma)</td><td>Prolactin levels</td></tr>
+        <tr><td>Quetiapine</td><td>Sedation, metabolic effects; Least effective antipsychotic</td><td>Glucose, lipids</td></tr>
+        <tr><td>Aripiprazole</td><td>Fewest SE overall; Nausea, insomnia (mild)</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout pearl">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content">
+      <strong>Key AMC Pearls</strong>
+      <ul>
+        <li>Most important monitoring for all antipsychotics: <span class="hl">Blood glucose + Lipid profile</span></li>
+        <li>Important investigation before antipsychotics: <span class="hl">ECG (QT prolongation risk)</span></li>
+        <li>Antipsychotic-induced weight gain treatment: <span class="hl">Orlistat</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MAOI -->
+<div class="callout danger">
+  <span class="callout-icon">🧀</span>
+  <div class="callout-content">
+    <strong>MAOIs (Phenelzine, Tranylcypromine, Selegiline)</strong>
+    <p><span class="hl-red">Hypertensive crisis</span> if taken with high-tyramine foods (cheese, red wine) | Most important monitoring: <strong>Blood pressure</strong></p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  SUBSTANCE ABUSE                                             -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fff7ed;">🧪</div>
+  <h2>Substance Abuse</h2>
+</div>
+
+<!-- DRUG INTOXICATION COMPARISON -->
+<div class="card">
+  <div class="card-title">⚖️ Drug Intoxication & Withdrawal — Master Table</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Drug</th><th>Intoxication Features</th><th>Withdrawal Features</th><th>Key Antidote / Tx</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Opioids (Heroin/Morphine)</td>
+          <td>CNS + respiratory depression, <span class="badge red">Pinpoint pupils</span></td>
+          <td>Lacrimation, rhinorrhea, yawning, diaphoresis, dilated pupils, piloerection, myalgias, N/V/D</td>
+          <td><strong>Naloxone</strong> (give if RR low or drowsy); Methadone for rehab</td>
+        </tr>
+        <tr>
+          <td>Amphetamines</td>
+          <td>Psychomotor agitation, HTN, tachycardia, <span class="badge red">Dilated pupils</span>, fever, <strong>Psychosis</strong></td>
+          <td>Paranoia, depression</td>
+          <td>Benzodiazepine (for psychosis)<br>SSRI (Fluoxetine) for dependence</td>
+        </tr>
+        <tr>
+          <td>Cocaine</td>
+          <td>Agitation, tachycardia, HTN, dilated pupils, paranoia, hallucinations, sudden death<br>Prolonged: <span class="hl">Tactile hallucinations (insects under skin)</span></td>
+          <td>Depression, "crash"</td>
+          <td>Benzodiazepine; note: cocaine causes vasospasm → stroke, MI, septal perforation, abruptio placentae</td>
+        </tr>
+        <tr>
+          <td>PCP (Phencyclidine)</td>
+          <td>Same as cocaine/amphetamine + <span class="badge red">Vertical/horizontal nystagmus</span></td>
+          <td>—</td>
+          <td>Benzodiazepine</td>
+        </tr>
+        <tr>
+          <td>LSD</td>
+          <td>Same as stimulants + <span class="badge red">Significant visual hallucinations</span></td>
+          <td>—</td>
+          <td>Benzodiazepine</td>
+        </tr>
+        <tr>
+          <td>Cannabis (Marijuana)</td>
+          <td>Euphoria, slowed time, ↑appetite, dry mouth, <span class="badge red">Conjunctival injection (red eyes)</span></td>
+          <td>Irritability</td>
+          <td>Stop cannabis; cannabis + psychosis → Stop cannabis 1st</td>
+        </tr>
+        <tr>
+          <td>Alcohol</td>
+          <td>Disinhibition, ataxia, slurred speech</td>
+          <td>Tremors, agitation, tachycardia, HTN, visual hallucinations, paranoia → <span class="badge red">Delirium Tremens (day 5)</span></td>
+          <td>Benzodiazepine (Diazepam oral; Lorazepam if liver disease); Acamprosate + Naltrexone for maintenance</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ALCOHOL SPECIAL -->
+<div class="card">
+  <div class="card-title">🍺 Alcohol — Australia-Specific Facts</div>
+  <div class="two-col">
+    <div class="info-card">
+      <h5>Safe Drinking Guidelines (Australia)</h5>
+      <ul>
+        <li>Max: Not more than 4 standard drinks/day OR 10/week</li>
+        <li>Pregnant: NONE</li>
+        <li>Breastfeeding: NONE</li>
+        <li>Legal drinking age in Australia: 18 years</li>
+        <li>Most common cause of male infertility = Alcohol</li>
+        <li>#1 cause of teratogenicity in Australia = Alcohol</li>
+      </ul>
+    </div>
+    <div>
+      <div class="callout danger">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-content">
+          <strong>Fetal Alcohol Syndrome</strong>
+          <p>Main features: <span class="hl-red">Absent philtrum + Thin upper lip</span><br>
+          When baby grows up: Irritability and agitation</p>
+        </div>
+      </div>
+      <div class="callout pearl">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-content">
+          <strong>Key AMC Pearls — Alcohol</strong>
+          <ul>
+            <li>Most important question to detect alcoholism: <span class="hl">"Eye opener?"</span></li>
+            <li>1st step in ED for alcoholic patient: <span class="hl">Check blood sugar</span></li>
+            <li>Reduce alcohol in Australia: <span class="hl">Raise taxes</span></li>
+            <li>GP role to decrease alcoholism: <span class="hl">Public lectures</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WERNICKE'S -->
+<div class="card">
+  <div class="card-title">🧠 Wernicke's Encephalopathy</div>
+  <div class="two-col">
+    <div class="callout danger">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-content">
+        <strong>Classic Triad (from chronic alcoholism → Thiamine deficiency)</strong>
+        <ul>
+          <li>Ataxia + Nystagmus</li>
+          <li>Confusion</li>
+          <li>Confabulation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout treatment">
+      <span class="callout-icon">💊</span>
+      <div class="callout-content">
+        <strong>Treatment ORDER is critical!</strong>
+        <p>1. Check blood sugar → 2. Give Thiamine FIRST → 3. Then Glucose<br>
+        ⚠️ <span class="hl-red">Never give glucose before thiamine — precipitates Wernicke's!</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PETROL SNIFFING -->
+<div class="callout trap">
+  <span class="callout-icon">⛽</span>
+  <div class="callout-content">
+    <strong>Petrol Sniffing (Australia-Specific)</strong>
+    <ul>
+      <li>Most commonly: Aboriginal people, age 12–15 years</li>
+      <li>Key symptom: Visual hallucinations</li>
+      <li>Risk: Aspiration pneumonitis</li>
+      <li>1st step if hypoxic: ABG</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  EATING DISORDERS                                            -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fdf4ff;">🍽️</div>
+  <h2>Eating Disorders</h2>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ Anorexia vs Bulimia vs Binge Eating — Master Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Anorexia Nervosa</th><th>Bulimia Nervosa</th><th>Binge Eating Disorder</th></tr></thead>
+      <tbody>
+        <tr><td>BMI</td><td><span class="badge red">Below 18.5</span></td><td><span class="badge orange">Normal or High</span></td><td><span class="badge orange">Normal or High</span></td></tr>
+        <tr><td>Compensatory behavior</td><td>Yes (self-vomiting, laxatives, exercise)</td><td>Yes (self-vomiting, laxatives, diuretics)</td><td><span class="badge green">None</span></td></tr>
+        <tr><td>Body image</td><td>Distorted (sees self as overweight)</td><td>Distorted + guilt</td><td>Distress, embarrassment</td></tr>
+        <tr><td>Physical signs</td><td>Lanugo hair, amenorrhea, bradycardia, hypokalemia, ankle edema</td><td>Dental erosion, enlarged parotids, hand erosions (Russell's sign)</td><td>Obesity-related</td></tr>
+        <tr><td>Key risk factor</td><td>Childhood sexual abuse, family h/o athleticism</td><td>Family h/o obesity</td><td>—</td></tr>
+        <tr><td>Treatment</td><td>Weight restoration 1st, Fluoxetine, CBT</td><td>CBT + Fluoxetine (for depression)</td><td>CBT</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="card">
+    <div class="card-title">🚨 Anorexia — Involuntary Admission Criteria</div>
+    <div class="callout danger">
+      <span class="callout-icon">⛔</span>
+      <div class="callout-content">
+        <strong>Admit Against Will If:</strong>
+        <ul>
+          <li>BMI &lt; 14</li>
+          <li>Critical vitals (hypotension, bradycardia, hypothermia)</li>
+          <li>Severe hypokalemia</li>
+          <li>Suicidal ideation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout pearl">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-content">
+        <strong>AMC Pearls</strong>
+        <ul>
+          <li>Most urgent investigation = Electrolytes</li>
+          <li>Most important feature = BMI &lt; 18.5</li>
+          <li>Anorexia + amenorrhea → 1st step = increase weight then decrease exercise</li>
+          <li>If pregnant with anorexia → Low birth weight</li>
+          <li>Gonadotropins NOT routine in anorexia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🎯 Eating Disorder Scenarios</div>
+    <div class="scenario">
+      <div class="q">Recurrent vomiting or exercise + LOW BMI?</div>
+      <div class="a">→ Anorexia Nervosa</div>
+    </div>
+    <div class="scenario">
+      <div class="q">Recurrent vomiting or exercise + NORMAL BMI?</div>
+      <div class="a">→ Bulimia Nervosa</div>
+    </div>
+    <div class="scenario">
+      <div class="q">Attack of excessive eating + induced vomiting?</div>
+      <div class="a">→ Bulimia Nervosa</div>
+    </div>
+    <div class="scenario">
+      <div class="q">Attack of excessive eating + NO vomiting/laxatives?</div>
+      <div class="a">→ Binge Eating Disorder</div>
+    </div>
+    <div class="scenario">
+      <div class="q">Young female, feeling body shape defective + exercise + NORMAL BMI?</div>
+      <div class="a">→ Body Dysmorphic Disorder</div>
+    </div>
+    <div class="scenario">
+      <div class="q">Same + LOW BMI?</div>
+      <div class="a">→ Anorexia Nervosa</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  SOMATOFORM DISORDERS                                        -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#f0fdf4;">🏥</div>
+  <h2>Somatoform Disorders</h2>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ Somatoform Disorders + Factitious vs Malingering — Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Condition</th><th>Mechanism</th><th>Key Features</th><th>Treatment</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Somatization Disorder</td><td>Unconscious</td>
+          <td>Female, multiple chronic symptoms from different systems (GI, sexual, neurologic), normal workup, frequent hospitalizations</td>
+          <td>CBT, single regular physician, avoid extra workup</td>
+        </tr>
+        <tr>
+          <td>Conversion Disorder</td><td>Unconscious</td>
+          <td>Young female, sudden severe psychic stress → sudden neurologic symptom (blindness, deafness, paralysis), <span class="hl">La belle indifférence</span> (doesn't care about symptoms), normal exam</td>
+          <td>Psychotherapy (resolves spontaneously)</td>
+        </tr>
+        <tr>
+          <td>Hypochondriasis</td><td>Unconscious</td>
+          <td>Preoccupation with fear of serious disease (cancer) despite reassurance, normal workup</td>
+          <td>Psychotherapy</td>
+        </tr>
+        <tr>
+          <td>Factitious Disorder (Munchausen's)</td><td>Conscious — no external gain</td>
+          <td>Deliberately produces illness (e.g., injecting insulin), long history of surgeries, threatening litigation, angry when confronted</td>
+          <td>Confrontation carefully; psychiatric referral</td>
+        </tr>
+        <tr>
+          <td>Munchausen by Proxy</td><td>Conscious — no external gain</td>
+          <td>Mother fabricates/causes illness in child — considered <span class="badge red">child abuse → REPORT</span></td>
+          <td>Report; child protection</td>
+        </tr>
+        <tr>
+          <td>Malingering</td><td>Conscious — <span class="badge red">obvious external gain</span></td>
+          <td>Faking for money, avoiding work/military, drugs; common in prisoners, drug addicts, immigrants with pending legal issues</td>
+          <td>Suspect and investigate; drug screen</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  SLEEP DISORDERS                                             -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#eff6ff;">😴</div>
+  <h2>Sleep Disorders</h2>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ Narcolepsy vs Sleep Apnea vs Insomnia — Comparison</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Narcolepsy</th><th>Obstructive Sleep Apnea</th><th>Insomnia</th></tr></thead>
+      <tbody>
+        <tr><td>Typical patient</td><td>Young male</td><td>Obese middle-aged male</td><td>Any (up to 30% of population)</td></tr>
+        <tr><td>Key feature</td><td>Sleep attacks + <span class="badge red">Cataplexy (pathognomonic)</span></td><td>Snoring, morning headache, daytime sleepiness, not refreshed</td><td>Difficulty initiating or maintaining sleep</td></tr>
+        <tr><td>Other features</td><td>Hypnagogic hallucinations (going to sleep), Hypnopompic hallucinations (waking up), Sleep paralysis</td><td>Complications: sudden death, HTN, arrhythmia</td><td>Affects quality of life</td></tr>
+        <tr><td>Investigation</td><td>Clinical diagnosis</td><td><span class="badge blue">Polysomnography</span></td><td>Clinical</td></tr>
+        <tr><td>Treatment</td><td>Forced naps + Psychostimulants</td><td>Weight loss (best long-term) + <span class="badge green">CPAP (treatment of choice)</span></td><td>1st: Sleep hygiene | 2nd: Benzodiazepines (Temazepam), Zolpidem, Melatonin</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout pearl">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content">
+      <strong>Narcolepsy Pearl — Cataplexy</strong>
+      <p>Sudden onset of loss of muscle tone precipitated by intense emotion or loud noise = <span class="hl">Pathognomonic of Narcolepsy</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  GRIEF vs DEPRESSION                                         -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fdf4ff;">😢</div>
+  <h2>Grief</h2>
+</div>
+
+<div class="card">
+  <div class="card-title">🕊️ Grief vs Depression + Stages</div>
+  <div class="two-col">
+    <div>
+      <div class="info-card">
+        <h5>5 Stages of Grief (Kübler-Ross)</h5>
+        <ul>
+          <li><strong>Denial</strong> – "This can't be happening to me"</li>
+          <li><strong>Anger</strong> – "Why is this happening?"</li>
+          <li><strong>Bargaining</strong> – "Make this not happen and I will..."</li>
+          <li><strong>Depression</strong> – "I'm too sad to do anything"</li>
+          <li><strong>Acceptance</strong> – "I'm at peace with what happened"</li>
+        </ul>
+      </div>
+      <div class="callout pearl" style="margin-top:10px">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-content">
+          <strong>Normal Grief Features</strong>
+          <ul>
+            <li>Hallucinations (visual or auditory) of the deceased = <span class="hl">NORMAL</span></li>
+            <li>Complicated grief = symptoms lasting <span class="hl">&gt;6 months</span></li>
+            <li>Anniversary reaction = worsening around anniversary date</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>Normal Grief</th><th>Depression</th></tr></thead>
+          <tbody>
+            <tr><td>Duration</td><td>&lt;6 months</td><td>Meets MDD criteria</td></tr>
+            <tr><td>Intense guilt</td><td>Absent</td><td><span class="badge red">Present</span></td></tr>
+            <tr><td>Suicidal thoughts</td><td>Absent</td><td><span class="badge red">May be present</span></td></tr>
+            <tr><td>Hopelessness</td><td>Absent</td><td><span class="badge red">Present</span></td></tr>
+            <tr><td>Hallucinations</td><td>Normal (of deceased)</td><td>Rare</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout treatment" style="margin-top:10px">
+        <span class="callout-icon">💊</span>
+        <div class="callout-content">
+          <strong>GP's Role in Grief + Treatment</strong>
+          <ul>
+            <li>Counsel + Support</li>
+            <li>If depression develops → SSRI</li>
+            <li>Severe insomnia → treat as insomnia</li>
+            <li>Aboriginal + grief + hallucination → Refer to Aboriginal counsellor</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================ -->
+<!--  IMPULSE CONTROL + DISSOCIATIVE + OTHER                     -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <div class="icon" style="background:#fff7ed;">⚡</div>
+  <h2>Impulse Control, Dissociative & Other Disorders</h2>
+</div>
+
+<div class="card">
+  <div class="card-title">⚡ Impulse Control Disorders — Quick Reference</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Disorder</th><th>Sex</th><th>Act</th><th>Pattern</th></tr></thead>
+      <tbody>
+        <tr><td>Kleptomania</td><td>Female</td><td>Steals objects she doesn't need</td><td>Anxiety before → Relief after; Goal is the act (not the objects)</td></tr>
+        <tr><td>Pyromania</td><td>Male (mental retardation)</td><td>Fire-setting on multiple occasions</td><td>Anxiety before → Gratification after; Curious about fire</td></tr>
+        <tr><td>Trichotillomania</td><td>Female</td><td>Pulls her own hair</td><td>Hair loss (scalp); may eat hair → Intestinal obstruction; Associated with nail biting</td></tr>
+        <tr><td>Intermittent Explosive Disorder</td><td>Male</td><td>Sudden rage episodes</td><td>Unwarranted hostility and aggression; lack of apparent provocation</td></tr>
+        <tr><td>Pathological Gambling</td><td>Any</td><td>Compulsive gambling</td><td>Cause in Australia: easy access (online gambling)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout pearl">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-content">
+      <strong>Psychotherapy for Kleptomania</strong>
+      <p>Aversion therapy is the specific psychotherapy for kleptomania</p>
+    </div>
+  </div>
+</div>
+
+<!-- DISSOCIATIVE -->
+<div class="card">
+  <div class="card-title">🪞 Dissociative Disorders</div>
+  <div class="two-col">
+    <div class="info-card">
+      <h5>Dissociative Fugue</h5>
+      <ul>
+        <li>Sudden memory loss + loss of identity</li>
+        <li>Patient doesn't remember name/personal life</li>
+        <li>Assumes a new personality and name</li>
+        <li>Affects memory, identity, emotion, behavior, perception</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h5>Dissociative Identity Disorder</h5>
+      <ul>
+        <li>Multiple personalities controlling the person</li>
+        <li>Usually related to childhood sexual abuse</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MISC PEARLS -->
+<div class="card">
+  <div class="card-title">🎯 Miscellaneous AMC Pearls</div>
+  <div class="two-col">
+    <div class="callout pearl">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-content">
+        <strong>General Clinical Pearls</strong>
+        <ul>
+          <li>Most stressful psychological event = <span class="hl">Marital separation</span></li>
+          <li>Wrist = most common site for self-injury</li>
+          <li>Most common reaction to parental divorce in kids = <span class="hl">Behavior problems</span></li>
+          <li>What significantly increases survival in elderly = <span class="hl">Living children</span></li>
+          <li>1st step in treatment of any psychiatric patient = Establish good therapeutic relationship</li>
+          <li>Aboriginal patient + psychiatric illness = Refer to Aboriginal health care</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout info">
+      <span class="callout-icon">📋</span>
+      <div class="callout-content">
+        <strong>Scenario-Based Pearls</strong>
+        <ul>
+          <li>Patient asks about your personal life → <span class="hl">Boundaries violation</span></li>
+          <li>Sexual contact adult + minor → <span class="hl">Report it</span></li>
+          <li>Hallucinations with antidepressant → <span class="hl">Normal</span></li>
+          <li>Homeless psychotic patient: 1st step = Collateral history from police</li>
+          <li>Deja vu = Normal phenomenon, NOT a disease</li>
+          <li>Déjà vu vs Jamais vu: Déjà = seen before (but not); Jamais = never seen before (but have)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="callout trap">
+    <span class="callout-icon">🔍</span>
+    <div class="callout-content">
+      <strong>Malingering Scenarios — Suspect when:</strong>
+      <ul>
+        <li>Illegal immigrant with psychological symptoms</li>
+        <li>Patient with pending court trial</li>
+        <li>Prisoner with abdominal pain, normal exam</li>
+        <li>Student requesting sick certificate after missing exam</li>
+        <li>Young male requesting morphine for severe colic pain → 1st step: drug screen (collect sample in front of you)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+<footer>File 3 of 3 · AMC1 Psychiatry Exam Prep · Neurocognitive, Pharmacology & Other Topics · Based on RANZCP/AMC Guidelines</footer>
+</body>
+</html>
